@@ -1,0 +1,66 @@
+<div class="form">
+    <div class="imageSection">
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur obcaecati est deserunt vitae dolorem omnis, rerum totam unde saepe iure, in blanditiis aliquam mollitia earum pariatur. Expedita soluta perspiciatis consequuntur!</p>
+    </div>
+    <div class="campaignSection">
+        <button class="cross" mat-button (click)="onNoClick()"><i class="bi bi-x-circle"></i></button>
+        <h3>Start Campaign</h3>
+        <div class="container">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)" class="example-form" novalidate fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+
+                <div class="startCampaignForm" *ngIf="isStartCampaignDivVisisble">
+                    <mat-form-field class="example-full-width">
+                        <mat-select matInput formControlName="user_type" (selectionChange)="onChange($event)" placeholder="Select User Type" required>
+                            <mat-option *ngFor="let user of user_type" [value]="user.value">
+                                {{user.value}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="myError('user_type', 'required')">User Type is required</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="text" minlength="3" (keypress)="letterOnly($event)" placeholder="Campaigner Name" formControlName="campaigner_name" id="myName" required>
+                        <!-- <mat-hint align="end">Not more then 20 characters long.</mat-hint> -->
+                        <mat-error *ngIf="myError('campaigner_name', 'required')">Name is required</mat-error>
+                        <mat-error *ngIf="myError('campaigner_name', 'minlength')">Enter Correct Name</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="email" formControlName="campaignerEmail" placeholder="Campaigner Email" required>
+                        <mat-error *ngIf="myError('campaignerEmail', 'required')">Email is required</mat-error>
+                        <mat-error *ngIf="myError('campaignerEmail', 'pattern')">Enter Valid Email</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field id="campaignerNumber" class="example-full-width">
+                        <input matInput type="tel" minlength="10" maxlength="10" (keypress)="OnlyNumbersAllowed($event)" placeholder="Campaigner Number" formControlName="campaignerNumber" id="myNumber" required>
+                        <mat-error *ngIf="myError('campaignerNumber', 'pattern')">Enter Valid Number</mat-error>
+                        <mat-error *ngIf="myError('campaignerNumber', 'required')">Number is required </mat-error>
+                    </mat-form-field>
+
+                    <button id="sendOtp" type="button" (click)="sendOTP()" mat-raised-button color="accent" [disabled]="isSendOtpBtnDisabled">{{otpButtonText}}</button>
+                    <div *ngIf="isOtpDivVisible">
+                        <div class="otpMessage">
+                            OTP Send Succesfully!!
+                        </div>
+                        <br>
+                        <mat-form-field>
+                            <input matInput formControlName="otp" minlength="4" maxlength="4" (keypress)="OnlyNumbersAllowed($event)" placeholder="Enter OTP" id="myOtp" required>
+                            <mat-error *ngIf="myError('otp', 'required')">OTP is required</mat-error>
+                            <mat-error *ngIf="myError('otp', 'pattern')">Enter Valid OTP</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <br>
+                    <section class="terms-section">
+                        <mat-checkbox matInput class="terms-margin" formControlName="term_conditions" required><a href="">Terms & Conditions*</a></mat-checkbox>
+                        <mat-error *ngIf="myError('term_conditions', 'required')"></mat-error>
+                    </section>
+
+                    <button class="nextbtn" mat-raised-button color="primary" type="button" (click)="startNextClick($event, userForm)"> NEXT </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- <button class="next" mat-button [mat-dialog-close]="data" cdkFocusInitial>Next</button> -->
+
+    </div>
+</div>

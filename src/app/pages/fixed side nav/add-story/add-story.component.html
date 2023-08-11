@@ -1,0 +1,28 @@
+
+<div class="newaccountform">
+    <h1 mat-dialog-title style="text-align: center;">Add New Story</h1>
+    <div mat-dialog-content style="text-align: center;">
+        <form class="form" [formGroup]="addStory">
+            <mat-form-field class="example-full-width">
+                <mat-label>Campaign Id</mat-label>
+                <input matInput formControlName="campaign_id">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Campaign Name</mat-label>
+                <input matInput formControlName="campaign_name">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Heading</mat-label>
+                <input matInput formControlName="heading">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Image</mat-label>
+                <input matInput formControlName="image">
+            </mat-form-field><br>
+        </form>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close cdkFocusInitial (click)="onSubmit()" [mat-dialog-close]="true" style="left: 35%;"
+            type="submit">Submit</button>
+    </div>
+</div>

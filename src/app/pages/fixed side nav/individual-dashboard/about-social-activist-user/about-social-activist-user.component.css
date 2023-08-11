@@ -1,0 +1,18 @@
+.mat-form-field {
+    display: inline-block;
+    width: 550px;
+    position: relative;
+    top: 10%;
+    left: 25%;
+    text-align: left;
+    font-size: inherit;
+    font-weight: 400;
+    line-height: 1.125;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    letter-spacing: normal;
+}
+
+.abcdef{
+    position: absolute;
+    left: 40%;    
+}

@@ -1,0 +1,72 @@
+<div class="container">
+    <button class="icon" mat-dialog-close><mat-icon>close</mat-icon></button>
+    <h1 mat-dialog-title style="text-align: center;">Make a Withdrawl Request</h1><br>
+
+    <form class="form" [formGroup]="withdrawlRequest">
+        <input matInput hidden formControlName="campaignerId">
+        <input matInput hidden formControlName="campaignId">
+        <div class="left">
+            <mat-form-field class="inputAmount">
+                <mat-label>Withdrawl Amount</mat-label>
+                <input matInput formControlName="amount" (keypress)="OnlyNumbersAllowed($event)" customMin="25000"
+                    (keypress)="restrictZero($event)">
+                <mat-error *ngIf="withdrawlRequest.controls['amount'].hasError('required')">
+                    Amount is <strong>Required !</strong>
+                </mat-error>
+                <mat-error *ngIf="withdrawlRequest.controls['amount'].hasError('min')">
+                    Amount should be <strong>>= 25000!</strong>
+                </mat-error>
+            </mat-form-field><br>
+            <div class="hospital">
+                <img src="{{hospital}}" alt="">
+            </div>
+            <button type="button" id="upload1" mat-raised-button (click)="fileHospital.click()">Upload Hospital
+                Bill</button><br>
+            <input hidden type="file" (change)="onHospitalBillSelected($event)" #fileHospital><br>
+        </div>
+        <div class="right">
+            <div class="image">
+                <img src="{{image}}" alt="">
+            </div>
+            <input hidden type="file" (change)="onOtherBillSelected($event)" #fileOther><br>
+            <button type="button" id="upload1" mat-raised-button (click)="fileOther.click()">Upload Other
+                Bill</button>
+            <div class="image">
+                <img src="{{medical}}" alt="">
+            </div>
+            <input hidden type="file" (change)="onMedicalImageSelected($event)" #fileMedical><br>
+            <button type="button" id="upload1" mat-raised-button (click)="fileMedical.click()">Latest Medical
+                Image</button>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field>
+                    <mat-label>Beneficiary Name</mat-label>
+                    <input type="text" matInput formControlName="beneficiary_name" required>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field>
+                    <mat-label>Bank Name</mat-label>
+                    <input type="text" matInput formControlName="bank_name" required>
+                </mat-form-field>
+            </div>
+        </div>
+        <mat-form-field>
+            <mat-label>Account Number</mat-label>
+            <input type="text" matInput formControlName="account_no" required>
+        </mat-form-field><br>
+        <mat-form-field>
+            <mat-label>Branch Name</mat-label>
+            <input type="text" matInput formControlName="branchName" required>
+        </mat-form-field><br>
+        <mat-form-field>
+            <mat-label>IFSC code</mat-label>
+            <input type="text" matInput formControlName="ifsc_code" required>
+        </mat-form-field><br>
+
+
+        <button class="btn btn-primary " mat-dialog-close (click)="onSubmit()"
+            [disabled]="!withdrawlRequest.valid">Submit</button>
+    </form>
+</div>

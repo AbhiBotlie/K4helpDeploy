@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col offset-3">
+            <h1 class="text-center">Please Select a plan</h1>
+        </div>
+        <div class="col text-end">
+            <i class="fa fa-times" mat-dialog-close></i>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-3 border border-3 border-success mx-auto rounded-3  p-4" *ngFor="let plan of plans">
+            <h1 class="my-10">{{plan.planName}}</h1>
+            <h1><b>{{plan.price}}%</b></h1>
+            <div class="row" *ngFor="let feature of mynewArray">
+                <div *ngFor="let i of plan.arryOfSelectedCheckbox.split(',')">
+                    <div *ngIf="feature.id == i">
+                        <i class="fa fa-check color color-sucess"> &nbsp;&nbsp;{{feature.value}}
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-success my-5 mx-4" mat-dialog-close (click)="onSelectTHePlan(plan)">Select & Continue</button>
+        </div>
+    </div>
+</div>

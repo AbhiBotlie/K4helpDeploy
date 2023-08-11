@@ -1,0 +1,9 @@
+.msgsection {
+    border-radius: 1%;
+    height: 200px;
+    width: 400px;
+}
+button{
+    position: relative;
+    left: 80%;
+}

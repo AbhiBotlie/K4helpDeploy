@@ -1,0 +1,43 @@
+<div>
+    <h1 mat-dialog-title style="text-align: center;">Add New Account</h1>
+    <div mat-dialog-content style="text-align: center;">
+        <form class="form" [formGroup]="accountDetails">
+            <mat-form-field class="example-full-width" *ngIf = "isUpdate">
+                <mat-label>Campaigner ID</mat-label>
+                <input matInput formControlName="campaigner_id" readonly>
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Campaign Name</mat-label>
+                <input matInput formControlName="campaigner_name">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Cause Category</mat-label>
+                <input matInput formControlName="cause_category">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Desease</mat-label>
+                <input matInput formControlName="desease">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Beneficiary Name</mat-label>
+                <input matInput formControlName="beneficiary_name">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Bank Name</mat-label>
+                <input matInput formControlName="bank_name">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Account Number</mat-label>
+                <input matInput formControlName="account_no">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>IFSC Code</mat-label>
+                <input matInput formControlName="ifsc_code">
+            </mat-form-field><br>
+        </form>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button cdkFocusInitial (click)="onSubmit()" style="left: 35%;"
+            type="submit">{{btnName}}</button>
+    </div>
+</div>

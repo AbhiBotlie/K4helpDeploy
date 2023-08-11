@@ -1,0 +1,49 @@
+<div class="banner">
+    <div class="dynamicImage">
+        <img src="assets/image/login.jpg" class="img-fluid" alt="image">
+    </div>
+
+    <div class="container">
+        <h3>Login</h3>
+        <form [formGroup]="userForm" class="example-form" novalidate fxLayout="column wrap"
+            fxLayoutAlign="center center" fxLayoutGap="10px">
+
+            <div class="loginForm">
+
+                <br>
+                <mat-form-field id="MObileNumber">
+                    <input matInput type="tel" minlength="10" maxlength="10" (keypress)="OnlyNumbersAllowed($event)"
+                        placeholder="Mobile Number" formControlName="campaignerNumber" id="myNumber" required>
+                    <mat-error *ngIf="myError('campaignerNumber', 'pattern')">Enter Valid Number</mat-error>
+                    <mat-error *ngIf="myError('campaignerNumber', 'required')">Number is required </mat-error>
+                </mat-form-field>
+                <!-- <mat-form-field>
+                        <input matInput type="text"
+                            placeholder="Email Id" formControlName="campaignerEmail" required>
+                        <mat-error *ngIf="myError('campaignerEmail', 'pattern')">Enter Valid Email !</mat-error>
+                        <mat-error *ngIf="myError('campaignerEmail', 'required')">Email is required </mat-error>
+                    </mat-form-field> -->
+                <br>
+                <button id="sendOtp" type="button" (click)="sendOTP()" mat-raised-button color="accent">Send
+                    OTP</button>
+                <div *ngIf="isOtpDivVisible">
+                    <div class="otpMessage">
+                        OTP Send Succesfully!!
+                    </div>
+                    <br>
+                    <mat-form-field>
+                        <input matInput formControlName="otp" minlength="4" maxlength="4"
+                            (keypress)="OnlyNumbersAllowed($event)" placeholder="Enter OTP" id="myOtp" required>
+                        <mat-error *ngIf="myError('otp', 'required')">OTP is required</mat-error>
+                        <mat-error *ngIf="myError('otp', 'pattern')">Enter Valid OTP</mat-error>
+                    </mat-form-field>
+                    <div class="submit">
+                        <button mat-raised-button color="primary" type="button" (click)="onSubmit()"
+                            [disabled]="!userForm.valid"> sumbit </button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

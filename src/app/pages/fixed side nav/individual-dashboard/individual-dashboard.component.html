@@ -1,0 +1,60 @@
+<mat-sidenav-container class="comman">
+  <mat-sidenav class="sidenav shadow-lg mb-5 bg-white rounded" #sidenav [mode]="mode" [opened]="openSidenav">
+    <mat-list-item id="logoimage">
+      <div style="  background-color: rgb(233, 230, 230);
+      margin: 20px; border-radius: 10px;">
+        <img width="125px" src="{{imageeeee}}" class="img-fluid" alt="Responsive image">
+      </div>
+    </mat-list-item><br>
+    <mat-list role="list" id="options">
+      <a routerLinkActive="active" 
+        routerLink="/individualdashboard/individualprofile">
+        <h6><i class="bi bi-person-circle"></i> &nbsp;&nbsp;My Profile</h6>
+      </a>
+      <a routerLinkActive="active" routerLink="/individualdashboard/aboutNGO">
+        <h6><i class="bi bi-buildings"></i> &nbsp;&nbsp; About NGO</h6>
+      </a>
+      <a routerLinkActive="active" 
+        routerLink="/individualdashboard/individuallistofdonation">
+        <h6><i class="bi bi-wallet-fill"></i>&nbsp;&nbsp; My Donation</h6>
+      </a>
+      <a routerLinkActive="active" 
+        routerLink="/individualdashboard/individualwithdrawlrequest">
+        <h6><i class="bi bi-bank2"></i>&nbsp;&nbsp; Withdrawl Request</h6>
+      </a>
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <i class="bi bi-list"></i>&nbsp;&nbsp; My Campaigns
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a routerLink="/individualdashboard/individualincompleteCampaign">
+            <h6> <i class="bi bi-square-half"></i>&nbsp;&nbsp;Incomplete </h6>
+          </a>
+          <a routerLink="/individualdashboard/individualverifiedcampagins">
+            <h6><i class="bi bi-square-fill"></i>&nbsp;&nbsp;Complete </h6>
+          </a>
+          <a routerLink="/individualdashboard/individualmycampagin">
+            <h6><i class="bi bi-play-btn-fill"></i>&nbsp;&nbsp;Live </h6>
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+        routerLink="/individualdashboard/individualfundtarget">
+        <h6><i class="bi bi-cash-stack"></i>&nbsp;&nbsp;&nbsp;Fund Target</h6>
+      </a>
+      <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+        routerLink="/individualdashboard/individuallogout">
+        <h6><i class="bi bi-box-arrow-left"></i>&nbsp;&nbsp;&nbsp;Log Out</h6>
+      </a>
+      <br>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content-container" >
+      <button mat-icon-button color='primary' (click)='sidenav.toggle()' class='toogleSidenav' [ngClass]="showToggle">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

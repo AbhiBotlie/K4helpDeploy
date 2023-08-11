@@ -1,0 +1,353 @@
+<!-- 
+<div class="container p-3">
+  <div class="brek">
+    <br> <br> <br>
+  </div>
+  <div class="profileSection border border-1 rounded-2 bg-light  offset-sm-1 mt-5 offset-lg-2">
+    <form action="" [formGroup]="camapignerForm">
+      <div class="imagesUpload col-md-12">
+        <div class="row">
+          <div class="picupload col-md-4">
+             <div class="profileImage my-2 col-md-12">
+              <img src="{{image}}" alt="..." class="img-thumbnail">
+             <div>
+              <button class="btn btn-danger col-md-6 my-2" id="upload1" (click)="fileProfile.click()">profile <i class="fas fa-upload"></i></button>
+              <input hidden type="file" (change)="onSelectedProgilePic($event)" #fileProfile id="profile">
+           </div>
+           </div>
+          </div>
+          <div class="adharupload col-md-4">
+            <div class="docImage my-2 col-md-12">
+                <img src="{{adharImage}}" alt="..." class="img-thumbnail">
+            </div>
+            <button class="btn btn-danger col-md-6" id="upload1" (click)="fileAdhar.click()">Aadhar <i class="fas fa-upload"></i></button>
+            <input hidden type="file" (change)="onAdharSelected($event)" #fileAdhar><br>
+          </div>
+          <div class="uploadplan col-md-4">
+            <div class="docImage2 my-2">
+              <img src="{{panImage}}" alt="..." class="img-thumbnail">
+            </div>
+            <button class="btn btn-danger col-md-6" id="upload2" (click)="filePan.click()">Pan <i class="fas fa-upload"></i></button>
+            <input hidden type="file" (change)="onPanSelected($event)" #filePan><br>
+          </div>
+        </div>
+      
+        <div class="row">
+          <div class="inputsectionleft col-md-4 text-center">
+            <input hidden type="file" (change)="onSelectedProgilePic($event)" #fileProfile id="profile"><br>
+            <mat-form-field>
+              <input matInput type="text" minlength="3" (keypress)="letterOnly($event)" placeholder="Campaigner Name"
+                formControlName="campaigner_name" id="myName" required>
+              <mat-error *ngIf="camapignerForm.controls['campaigner_name'].hasError('required')">
+                Name is <strong>Required</strong>
+              </mat-error>
+              <mat-error *ngIf="camapignerForm.controls['campaigner_name'].hasError('minlength')">
+                Name must be atleast of <strong>3 characters</strong>
+              </mat-error>
+              <mat-error *ngIf="camapignerForm.controls['campaigner_name'].hasError('maxlength')">
+                Name must be less than <strong>40 characters</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Date of birth</mat-label>
+              <input matInput  [max]="maxDate" formControlName="campaignerDob" [matDatepicker]="picker">
+              <mat-datepicker-toggle matIconSuffix [for]="picker" disabled="false"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="camapignerForm.controls['campaignerDob'].hasError('required')">
+                Date of birth is<strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="tel" placeholder="Aadhar Number" (keypress)="OnlyNumbersAllowed($event)" minlength="12"
+                maxlength="12" formControlName="campaignerAadharNo" id="myName" required>
+              <mat-error *ngIf="camapignerForm.controls['campaignerAadharNo'].hasError('required')">
+                Aadhar no. is<strong>Required</strong>
+              </mat-error>
+              <mat-error *ngIf="camapignerForm.controls['campaignerAadharNo'].hasError('pattern')">
+                Please enter a valid Adhar No.
+              </mat-error>
+              <mat-error *ngIf="camapignerForm.controls['campaignerAadharNo'].hasError('minlength')">
+                Adhar No. should be of <strong>12 digits</strong>only
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input matInput type="tel" placeholder="Pan Number" (keypress)="lettersAndNumber($event)" minlength="10"
+                maxlength="10" formControlName="campaignerPanNo" class="upper-case" id="myName" required>
+              <mat-error *ngIf="camapignerForm.controls['campaignerPanNo'].hasError('required')">
+                Pan Card is<strong>Required</strong>
+              </mat-error>
+              <mat-error *ngIf="camapignerForm.controls['campaignerPanNo'].hasError('pattern')">
+                Please enter a valid Pan No.
+              </mat-error>
+              <mat-error *ngIf="camapignerForm.controls['campaignerPanNo'].hasError('minlength')">
+                Pan no. should be of atleast <strong>10 digits</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+          </div>
+          <div class="midSection col-md-4 mt-3 text-center">
+            <mat-form-field>
+              <input matInput type="text" placeholder="Address" formControlName="address" id="myName" required>
+              <mat-error *ngIf="camapignerForm.controls['address'].hasError('required')">
+                Address is<strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input matInput type="text" placeholder="City" formControlName="city" id="myName" required>
+              <mat-error *ngIf="camapignerForm.controls['city'].hasError('required')">
+                City is<strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input matInput type="text" placeholder="State" formControlName="state" id="myName" required>
+              <mat-error *ngIf="camapignerForm.controls['state'].hasError('required')">
+                State is<strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Country" formControlName="country" id="myName" required>
+              <mat-error *ngIf="camapignerForm.controls['country'].hasError('required')">
+                Country is<strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+          </div>
+          <div class="rightSection col-md-4 mt-3 text-center">
+            <mat-form-field>
+              <input matInput type="text" placeholder="Pin Code" formControlName="pincode" id="myName" required
+                (keypress)="onlyNumbers($event)" minlength="6" maxlength="6">
+              <mat-error *ngIf="camapignerForm.controls['pincode'].hasError('required')">
+                Pin Code is<strong>Required</strong>
+              </mat-error>
+              <mat-error *ngIf="camapignerForm.controls['pincode'].hasError('minlength')">
+                Pin Code should be of atleast <strong>6 digits</strong>
+              </mat-error>
+              <mat-error *ngIf="camapignerForm.controls['pincode'].hasError('maxlength')">
+                Pin Code should be of <strong>6 digits</strong> only
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Facebook Link" formControlName="campaignerFacebook" id="myName"
+                required>
+              <mat-error *ngIf="camapignerForm.controls['campaignerFacebook'].hasError('required')">
+                Facebook Link is<strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Instagram Link" formControlName="campaignerInstagram" id="myName"
+                required>
+              <mat-error *ngIf="camapignerForm.controls['campaignerInstagram'].hasError('required')">
+                Instagram Link is<strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input matInput type="text" placeholder="LinkedIn Link" formControlName="campaignerLinkedIn" id="myName"
+                required>
+              <mat-error *ngIf="camapignerForm.controls['campaignerLinkedIn'].hasError('required')">
+                Instagram Link is<strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <button type="submit" class="submit btn btn-secondary my-3" (click)="onSubmit()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->
+<section class="contact__area grey-bg-2 pt-20 pb-10 mb-30 p-relative fix ">
+  <div class="container">
+      <div class="row">
+          <div class="col-xxl-4 col-xl-4  col-lg-4  col-md-4  box">
+              <h3 class="mt-2 mb-2 ">Edit Profile</h3>
+          </div>
+          <div class="col-xxl-2 col-xl-2  col-lg-2  col-md-2 offset-md-5 box">
+              <button class="campaignButton btn btn-secondary mt-2 mb-2 " (click)="onClicked()">Start a new
+                  Campaign</button>
+          </div>
+      </div>
+  </div>
+</section>
+<div class="container offset-md-1">
+
+  <div class="card col-md-10 shadow-lg">
+    <form [formGroup]="camapignerForm">
+
+    <div class="row">
+      <div class="col col-md-3 box-1 text-center">
+        <img src="{{image}}"  onerror="this.onerror=null;this.src='./assets/image/logoInBlack.png';" alt="..." class="img">
+        <div>
+         <button class="btn btn-danger col-md-6 my-2 offset-md-2" id="upload1" (click)="fileProfile.click()">profile <i class="fas fa-upload"></i></button>
+         <input hidden type="file" (change)="onSelectedProgilePic($event)" #fileProfile id="profile">
+         </div>
+      </div>
+      <div class="col col-md-3 box-1 offset-md-1 text-center">
+        <div class="docImage2 my-2">
+          <img src="{{panImage}}" onerror="this.onerror=null;this.src='./assets/image/logoInBlack.png';" alt="..." class="img">
+        </div>
+        <button class="btn btn-danger col-md-6 offset-md-2" id="upload2" (click)="filePan.click()">Pan <i class="fas fa-upload"></i></button>
+        <input hidden type="file" (change)="onPanSelected($event)" #filePan>
+      </div>
+      <div class="col col-md-3 box-1 offset-md-1 text-center">
+        <div class="docImage my-2 col-md-12">
+          <img src="{{adharImage}}" onerror="this.onerror=null;this.src='./assets/image/logoInBlack.png';" alt="..." class="img">
+      </div>
+      <button class="btn btn-danger col-md-6 offset-md-2" id="upload1" (click)="fileAdhar.click()">Aadhar <i class="fas fa-upload"></i></button>
+      <input hidden type="file" (change)="onAdharSelected($event)" #fileAdhar>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-3 box-2 mt-3">
+        <input hidden type="file" (change)="onSelectedProgilePic($event)" #fileProfile id="profile">
+        <mat-form-field>
+          <input matInput type="text" minlength="3" (keypress)="letterOnly($event)" placeholder="Campaigner Name"
+            formControlName="campaigner_name" id="myName" required>
+          <mat-error *ngIf="camapignerForm.controls['campaigner_name'].hasError('required')">
+            Name is <strong>Required</strong>
+          </mat-error>
+          <mat-error *ngIf="camapignerForm.controls['campaigner_name'].hasError('minlength')">
+            Name must be atleast of <strong>3 characters</strong>
+          </mat-error>
+          <mat-error *ngIf="camapignerForm.controls['campaigner_name'].hasError('maxlength')">
+            Name must be less than <strong>40 characters</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-md-3 box-2 offset-md-1 mt-3">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Address" formControlName="address" id="myName" required>
+          <mat-error *ngIf="camapignerForm.controls['address'].hasError('required')">
+            Address is<strong>Required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-md-3 box-2 offset-md-1 mt-3">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Pin Code" formControlName="pincode" id="myName" required
+            (keypress)="onlyNumbers($event)" minlength="6" maxlength="6">
+          <mat-error *ngIf="camapignerForm.controls['pincode'].hasError('required')">
+            Pin Code is<strong>Required</strong>
+          </mat-error>
+          <mat-error *ngIf="camapignerForm.controls['pincode'].hasError('minlength')">
+            Pin Code should be of atleast <strong>6 digits</strong>
+          </mat-error>
+          <mat-error *ngIf="camapignerForm.controls['pincode'].hasError('maxlength')">
+            Pin Code should be of <strong>6 digits</strong> only
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-3 box-2 ">
+        <mat-form-field>
+          <mat-label>Date of birth</mat-label>
+          <input matInput  [max]="maxDate" formControlName="campaignerDob" [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix [for]="picker" disabled="false"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="camapignerForm.controls['campaignerDob'].hasError('required')">
+            Date of birth is<strong>Required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-md-3 box-2 offset-md-1 mt-3">
+        <mat-form-field>
+          <input matInput type="text" placeholder="City" formControlName="city" id="myName" required>
+          <mat-error *ngIf="camapignerForm.controls['city'].hasError('required')">
+            City is<strong>Required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-md-3 box-2 offset-md-1 mt-3">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Facebook Link" formControlName="campaignerFacebook" id="myName"
+            required>
+          <mat-error *ngIf="camapignerForm.controls['campaignerFacebook'].hasError('required')">
+            Facebook Link is<strong>Required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-3 box-2 ">
+        <mat-form-field>
+          <input matInput type="tel" placeholder="Aadhar Number" (keypress)="OnlyNumbersAllowed($event)" minlength="12"
+            maxlength="12" formControlName="campaignerAadharNo" id="myName" required>
+          <mat-error *ngIf="camapignerForm.controls['campaignerAadharNo'].hasError('required')">
+            Aadhar no. is<strong>Required</strong>
+          </mat-error>
+          <mat-error *ngIf="camapignerForm.controls['campaignerAadharNo'].hasError('pattern')">
+            Please enter a valid Adhar No.
+          </mat-error>
+          <mat-error *ngIf="camapignerForm.controls['campaignerAadharNo'].hasError('minlength')">
+            Adhar No. should be of <strong>12 digits</strong>only
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-md-3 box-2 offset-md-1">
+        <mat-form-field>
+          <input matInput type="text" placeholder="State" formControlName="state" id="myName" required>
+          <mat-error *ngIf="camapignerForm.controls['state'].hasError('required')">
+            State is<strong>Required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-md-3 box-2 offset-md-1">
+        <mat-form-field>
+          <input matInput type="text" placeholder="LinkedIn Link" formControlName="campaignerLinkedIn" id="myName"
+            required>
+          <mat-error *ngIf="camapignerForm.controls['campaignerLinkedIn'].hasError('required')">
+            Instagram Link is<strong>Required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-3 box-2 ">
+        <mat-form-field>
+          <input matInput type="tel" placeholder="Pan Number" (keypress)="lettersAndNumber($event)" minlength="10"
+            maxlength="10" formControlName="campaignerPanNo" class="upper-case" id="myName" required>
+          <mat-error *ngIf="camapignerForm.controls['campaignerPanNo'].hasError('required')">
+            Pan Card is<strong>Required</strong>
+          </mat-error>
+          <mat-error *ngIf="camapignerForm.controls['campaignerPanNo'].hasError('pattern')">
+            Please enter a valid Pan No.
+          </mat-error>
+          <mat-error *ngIf="camapignerForm.controls['campaignerPanNo'].hasError('minlength')">
+            Pan no. should be of atleast <strong>10 digits</strong>
+          </mat-error>
+        </mat-form-field>
+        </div>
+        <div class="col col-md-3 box-2 offset-md-1">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Country" formControlName="country" id="myName" required>
+            <mat-error *ngIf="camapignerForm.controls['country'].hasError('required')">
+              Country is<strong>Required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col col-md-3 box-2 offset-md-1">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Instagram Link" formControlName="campaignerInstagram" id="myName"
+              required>
+            <mat-error *ngIf="camapignerForm.controls['campaignerInstagram'].hasError('required')">
+              Instagram Link is<strong>Required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-4 offset-md-4">
+        <button type="submit" class="submit btn btn-secondary my-3" (click)="onSubmit()">Submit</button>
+
+      </div>
+    </div>
+    </form>
+  </div>
+
+</div>

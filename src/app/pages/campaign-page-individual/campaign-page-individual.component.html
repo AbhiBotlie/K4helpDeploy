@@ -1,0 +1,202 @@
+<div class="container-fluid">
+  <div class="heading text-center my-3">
+    <h1 class="head my-5">OFFER A HELPING HAND TO SUPPORT <i style="color: red;">{{singleCampaignData.patient_name}}</i>
+      &nbsp;{{singleCampaignData.cause_category}} TREATMENT</h1>
+    <hr class="new1">
+    <button type="button" class="badge-pill btn-success m-2 p-2" *ngIf="isVerified"><i class="bi bi-patch-check"></i>
+      Verified</button>
+    <button type="button" class="badge-pill btn-danger m-2 p-2" *ngIf="isUnverified"><i class="bi bi-x-circle"></i>
+      Unverified</button>
+    <button type="button" class="badge-pill btn-warning m-2 p-2" *ngIf="isUrgent"><i class="bi bi-clock"></i>
+      Urgent</button>
+    <button type="button" class="badge-pill btn-info m-2 p-2" *ngIf="isTaxBenifit"><i class="bi bi-currency-rupee"></i>
+      Tax Benifit</button>
+  </div>
+  <div class="row">
+    <div class="LeftSection col-md-7 m-md-5">
+      <div class="col-lg-12 box">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{{singleCampaignData.bannerImage}}" class="d-block w-100" alt="..." height="400px" width="400px">
+            </div>
+          </div>
+          <button class="carousel-control-prev" id="buttons" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden" style="color:black">Previous</span>
+          </button>
+          <button class="carousel-control-next" id="buttons" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="story p-3">
+          <h5 class="text-center p-3 border border-1 text-white bg-dark"><b>Story</b></h5>
+          <p class="p-5">
+            {{singleCampaignData.description}}
+          </p>
+        </div>
+        <div class="Updates p-4">
+          <h5 class="text-center p-3 border border-1 text-white bg-dark"><b>Updates</b></h5>
+          <div class="row">
+            <div class="imageUpdate col-md-12">
+              <img src="{{singleCampaignData.updatedPatientImages}}" height="400px" width="100%;">
+            </div>
+            <div class="updateTextSection">
+              <p>
+                {{singleCampaignData.conditionUpdate}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="patientImage p-3">
+          <h5 class="text-center p-3 border border-1 text-white bg-dark"><b>Patient Image</b></h5>
+          <div class="row my-4">
+            <div class="patientImage d-flex col-md-5 m-3" *ngFor="let image of patientImages">
+              <img src="{{serverUrl}}/assets/images_of_campagin/{{image.image}}" height="200px" width="350px">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rightSection col-md-3 mt-5">
+      <div class="goal col-md-12">
+        <h2 class="text-center"><b>Goal Amount <br><span style="color: rgb(121, 201, 0);"><span
+                class="bi bi-currency-rupee text-dark"></span> {{singleCampaignData.required_amount}}</span> </b><span
+            class="text-success"></span></h2>
+        <div class="circular">
+          <div class="inner">
+          </div>
+          <div class="outer">
+          </div>
+          <div class="numb">
+            0%</div>
+          <div class="circle">
+            <div class="dot">
+              <span>30%</span>
+            </div>
+            <div class="bar left">
+              <div class="progress">
+              </div>
+            </div>
+            <div class="bar right">
+              <div class="progress">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="colum col-md-12 my-3">
+        <div class="buttonShare py-3">
+          <button type="button" (click)="openDonationForm()" class="btn btn-success ml-md-5 py-2 col-md-8">Donate
+          </button>
+        </div>
+        <div class="buttonShare my-3 pb-3">
+          <button type="button" class="btn btn-secondary col-md-8 ml-md-5 py-2" (click)="onClickShare()">Share</button>
+        </div>
+
+        <div class="payment col-md-12 my-3 p-0 bg-light text-dark">
+          <h5 class="text-center bg-dark p-3 text-light mx-0"><b>Payment </b><span
+              class="bi bi-patch-check text-success"></span></h5>
+          <img src="{{serverUrl}}/assets/image/phonepe1.png" height="100px" width="100px">
+          <img src="{{serverUrl}}/assets/image/gpay1.png" height="100px" width="100px">
+        </div>
+
+        <div class="bankDetails col-md-12 my-3 p-0 bg-light text-dark">
+          <h5 class="text-center bg-dark p-3 text-light mx-0"><b>Bank Details&nbsp;&nbsp;<span
+                class="bi bi-patch-check text-success"></span></b>
+          </h5>
+          <li>Bank Name :<span>{{singleCampaignData.bank_name}}</span></li>
+          <li>Account Number : <span>{{singleCampaignData.account_no}}</span></li>
+          <li>IFSC code : <span>{{singleCampaignData.ifsc_code}}</span></li>
+        </div>
+        <div class="CampaignerDetails col-md-12 my-3 p-0 bg-light text-dark">
+          <h5 class="text-center bg-dark p-3 text-light mx-0"><b>Campaigner Details </b><span
+              class="bi bi-patch-check text-success"></span></h5>
+          <li>Campaign Id : <span>{{singleCampaignData.campaignId}}</span></li>
+          <li>Campaign Name: <span>{{singleCampaignData.patient_name}}</span></li>
+          <li>Campaigner Id: <span>{{singleCampaignData.campaignerId}} </span></li>
+          <li>Campaigner Name: <span>{{singleCampaignData.beneficiary_name}}</span></li>
+          <li>Email Id: <span>{{singleCampaignData.patient_email}}</span></li>
+          <li>Contact No.: <span>{{singleCampaignData.patient_number}}</span></li>
+        </div>
+
+        <div class="CampaignerDetails col-md-12 my-3 p-0 bg-light text-dark">
+          <h5 class="text-center bg-dark p-3 text-light mx-0"><b>Benificiary Details&nbsp;</b><span
+              class="bi bi-patch-check text-success"></span>
+          </h5>
+          <li>Benificiary Name : <span>{{singleCampaignData.beneficiary_name}}</span></li>
+          <li>Benificiary Email: <span>{{singleCampaignData.patient_email}}</span></li>
+          <li>Bank Name: <span>{{singleCampaignData.bank_name}} </span></li>
+          <li>Account Number: <span>{{singleCampaignData.account_no}}</span></li>
+          <li>IFSC code: <span>{{singleCampaignData.ifsc_code}}</span></li>
+        </div>
+        <div class="noofDonors col-md-12 bg-light my-3">
+          <h5 class="text-center bg-dark text-white p-3"><i class="bi bi-people"></i><b> Value no 1 No of Donors</b>
+          </h5>
+          <div class="Influencers col-md-12">
+            <div class="row" *ngFor="let donor of listOdDonor">
+              <div class="col-6">
+                <b>
+                  <p class="text-center">{{donor.donorName}}</p>
+                </b>
+              </div>
+              <div class="col-6 my-2">
+                <b>
+                  <p class="text-center text-success">{{donor.amount}}</p>
+                </b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="TopInfluencersSection bg-light col-md-12 my-3">
+        <h5 class="bg-dark text-light p-3 text-center"><i class="bi bi-trophy"></i><b> Top Influencers</b></h5>
+        <div class="Influencers col-md-12">
+          <div class="row">
+            <div class="col-6">
+              <b>
+                <p class="text-center">{{topAmount.name}}</p>
+              </b>
+            </div>
+            <div class="col-6 my-2">
+              <b>
+                <p class="text-center text-success">{{topAmount.amount}}</p>
+              </b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ListofDonors col-md-12 bg-light my-3">
+        <h5 class="text-center bg-dark text-white p-3"><i class="bi bi-file-medical"></i><b> Fetch the Cause Value</b>
+        </h5>
+        <div class="Donors col-md-12 p-2">
+          <div class="row">
+            <div class="col-6">
+              <b>
+                <p class="text-center">Cause-Category</p>
+              </b>
+            </div>
+            <div class="col-6 my-2">
+              <b>
+                <p class="text-center text-success">{{singleCampaignData.desease}}</p>
+              </b>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="documentSection col-md-12 my-3 bg-light p-2">
+        <h5 class="text-center bg-dark p-3 text-white"><i class="bi bi-file-earmark-arrow-down"></i><b>
+            &nbsp;Documents</b></h5>
+        <div class="patientImage d-flex col-md-12 my-2" *ngFor="let medical of medicalDocument">
+          <img src="{{serverUrl}}/assets/medical_docs/{{medical.medicalImage}}" height="200px" width="350px">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

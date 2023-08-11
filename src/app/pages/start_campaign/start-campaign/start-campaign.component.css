@@ -1,0 +1,220 @@
+.content {
+  width: 100%;
+  align-items: center;
+}
+
+.container {
+  width: 40%;
+  height: auto;
+  position: relative;
+  background-color: white;
+  border: 1px solid rgb(82, 79, 79);
+  align-items: center;
+  text-align: center;
+  border-radius: 1.25rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 2%;
+}
+
+.imageStart {
+  height: 50vh;
+  width: 100%;
+  background-color: aquamarine;
+}
+
+.imageStart img {
+  position: absolute;
+  height: 50vh;
+  width: 100%;
+}
+
+.imageOntext {
+  position: relative;
+  height: 15vh;
+  padding-top: 35px;
+  padding-left: 3px;
+  width: 85%;
+}
+
+.imageOntext h1 {
+  font-size: 60px;
+  font-weight: 600;
+}
+
+.movingText {
+  height: 4%;
+  width: 100%;
+  background-color: rgb(162, 195, 214);
+}
+.example-form{
+  width: 95%;
+}
+.mat-error {
+  color: #f44336;
+  margin-left: 0%;
+}
+
+mat-form-field{
+  width: 95%;
+}
+
+.mat-checkbox {
+  cursor: inherit;
+  align-items: baseline;
+  vertical-align: middle;
+  display: inline-flex;
+  white-space: nowrap;
+  margin-left: 5%;
+}
+
+.terms-section {
+  left: 25%;
+}
+
+mat-form-field {
+  margin-left: 5%;
+  width: 90%;
+
+}
+
+#campaignerNumber {
+  width: 65%;
+  position: relative;
+  float: left;
+  left: 13px;
+}
+
+#nextButton {
+  margin: 5px;
+}
+
+
+@media screen and (max-width:470px){
+  .imageStart {
+    height: 30vh;
+    width: 100%;
+    background-color: aquamarine;
+  }
+  
+  .imageStart img {
+    position: absolute;
+    height: 30vh;
+    width: 100%;
+  }
+  .container {
+    width: 83%;
+    height: auto;
+    position: relative;
+    background-color: white;
+    border: 1px solid rgb(82, 79, 79);
+    align-items: center;
+    text-align: center;
+    border-radius: 1.25rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 2%;
+}
+.imageOntext h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color:rgb(6, 6, 19);
+
+}
+}
+@media screen and (max-width:767px){
+  .imageStart {
+    height: 30vh;
+    width: 100%;
+    background-color: aquamarine;
+  }
+  
+  .imageStart img {
+    position: absolute;
+    height: 30vh;
+    width: 100%;
+  }
+  .container {
+    width: 83%;
+    height: auto;
+    position: relative;
+    background-color: white;
+    border: 1px solid rgb(82, 79, 79);
+    align-items: center;
+    text-align: center;
+    border-radius: 1.25rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 2%;
+}
+.imageOntext h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color:rgb(6, 6, 19);
+
+}
+}
+@media screen and (max-width:910px){
+  .imageStart {
+    height: 30vh;
+    width: 100%;
+    background-color: aquamarine;
+  }
+  
+  .imageStart img {
+    position: absolute;
+    height: 30vh;
+    width: 100%;
+  }
+  .container {
+    width: 83%;
+    height: auto;
+    position: relative;
+    background-color: white;
+    border: 1px solid rgb(82, 79, 79);
+    align-items: center;
+    text-align: center;
+    border-radius: 1.25rem;
+    margin-top: 10%;
+    margin-bottom: 10px;
+    padding: 2%;
+}
+.imageOntext h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color:rgb(6, 6, 19);
+
+}
+}
+@media screen and (max-width:1200px){
+  .imageStart {
+    height: 30vh;
+    width: 100%;
+    background-color: aquamarine;
+  }
+  
+  .imageStart img {
+    position: absolute;
+    height: 30vh;
+    width: 100%;
+  }
+  .container {
+    width: 70%;
+    height: auto;
+    position: relative;
+    background-color: white;
+    border: 1px solid rgb(82, 79, 79);
+    align-items: center;
+    text-align: center;
+    border-radius: 1.25rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 2%;
+}
+.imageOntext h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color:rgb(6, 6, 19);
+
+}
+}

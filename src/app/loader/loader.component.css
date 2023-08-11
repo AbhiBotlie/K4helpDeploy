@@ -1,0 +1,44 @@
+.cssload-container {
+  position: fixed;
+  width: 100%;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  height: 100%;
+  background-color:rgb(24, 22, 22);
+  opacity: 0.9;
+  z-index: 1000;
+  /* display: none; */
+  /* backdrop-filter: blur(4px) saturate(150%) */
+}
+
+.cssload {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 25%;
+  top: 20%;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  animation: cssload-spin 500ms infinite linear;
+  -o-animation: cssload-spin 500ms infinite linear;
+  -ms-animation: cssload-spin 500ms infinite linear;
+  -webkit-animation: cssload-spin 500ms infinite linear;
+  -moz-animation: cssload-spin 500ms infinite linear;
+ 
+}
+.cssload img{
+  margin-top:10%;
+  height: 70%;
+  width:70%;
+  font-weight: bold;
+  margin-left:10%;
+  
+}
+
+

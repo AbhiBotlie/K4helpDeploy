@@ -1,0 +1,176 @@
+<section class="contact__area grey-bg-2 pt-20 pb-10 mb-30 p-relative fix ">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-4 col-xl-4  col-lg-4  col-md-4  box">
+                <h3 class="mt-2 mb-2 ">About Your NGO</h3>
+            </div>
+            <div class="col-xxl-2 col-xl-2  col-lg-2  col-md-2 offset-md-5 box">
+                <button class="campaignButton btn btn-secondary mt-2 mb-2 " (click)="onClicked()">Start a new
+                    Campaign</button>
+            </div>
+        </div>
+    </div>
+</section><br>
+<div class="container">
+    <div class="card shadow-lg">
+        <form class="form" [formGroup]="aboutNGO"><br>
+            <div class="row">
+                <input type="hidden" formControlName="campaignerId">
+                <div class="col col-md-4 offset-md-1 box-1">
+                    <mat-form-field class="example-full-width" appearance="outline" id="agency">
+                        <mat-label>NGO Name</mat-label>
+                        <mat-select formControlName="nameOfNgo">
+                            <mat-option value="one">SaveLIFE Foundation</mat-option>
+                            <mat-option value="one">Care India NGO</mat-option>
+                            <mat-option value="one">Smile Foundation</mat-option>
+                            <mat-option value="one">Nanhi Kali Foundation</mat-option>
+                            <mat-option value="one">Oxfam India Trust</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="myError('nameOfNgo', 'required')">NGO name is required</mat-error>
+                        <mat-error *ngIf="myError('nameOfNgo', 'minlength')">NGO name should be ateast of 3
+                            characters</mat-error>
+                        <mat-error *ngIf="myError('nameOfNgo', 'maxlength')">NGO name can not be more than 40
+                            characters</mat-error>
+                    </mat-form-field><br>
+                </div>
+                <div class="col col-md-4 offset-md-1 box-1">
+                    <mat-form-field class="example-full-width" appearance="outline" id="agency">
+                        <mat-label>Add your working area</mat-label>
+                        <input matInput formControlName="areaOfWorking">
+                        <mat-error *ngIf="myError('areaOfWorking', 'required')">Working Area is required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-4 offset-md-1 box-1">
+                    <mat-form-field class="example-full-width" appearance="outline" id="agency">
+                        <mat-label>Tax-Benefit</mat-label>
+                        <mat-select formControlName="texBenifit">
+                            <mat-option disabled>Choose taxbenefit</mat-option>
+                            <mat-option *ngFor="let option of taxBenefits" [value]="option.options">
+                                {{option.options}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="myError('texBenifit', 'required')">Please choose an option</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col col-md-4 offset-md-1 box-1">
+                    <mat-form-field class="example-full-width" appearance="outline" id="agency">
+                        <mat-label>Under-Section</mat-label>
+                        <mat-select formControlName="underSection">
+                            <mat-option disabled>Choose Under-Section</mat-option>
+                            <mat-option *ngFor="let option of underSections" [value]="option.section">
+                                {{option.section}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="myError('underSection', 'required')">Please choose an option</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-6 offset-md-1">
+                    <mat-form-field id="textarea" class="example-full-width" appearance="outline" id="agency">
+                        <mat-label>Description [Max character 600]</mat-label>
+                        <textarea matInput formControlName="descreption" maxlength="600" rows="11" cols="30"></textarea>
+                        <mat-error *ngIf="myError('descreption', 'required')">Description is required</mat-error>
+                        <mat-error *ngIf="myError('descreption', 'minlength')">Description must be atleast of 10
+                            characters</mat-error>
+                        <mat-error *ngIf="myError('descreption', 'maxlength')">Description can not be of more than 600
+                            characters</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col col-md-4 mt-5">
+                    <button type="button" mat-raised-button (click)="fileInput.click()" id="adhar"
+                        color="primary">Upload NGO
+                        Certificate</button>
+                    <input hidden type="file" (change)="onNgoDocSelected($event)" #fileInput>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br>
+                    <br><button type="button" mat-raised-button (click)="filebenifit.click()" id="benifit"
+                        color="primary">Upload Tax Benefit Certificate</button>
+                    <input hidden type="file" (change)="ontaxBenifitSelected($event)" #filebenifit><br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-4 offset-md-5 ox-2">
+                    <button mat-raised-button color="accent" (click)="onSubmit()">Submit</button>
+                </div>
+            </div>
+        </form><br>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container" id="">
+    <form class="form" [formGroup]="aboutNGO">
+        <h1 class="label">About Your NGO</h1><br>
+       <input type="hidden" formControlName="campaignerId">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>NGO Name</mat-label>
+            <mat-select formControlName="nameOfNgo">
+                <mat-option value="one">SaveLIFE Foundation</mat-option>
+                <mat-option value="one">Care India NGO</mat-option>
+                <mat-option value="one">Smile Foundation</mat-option>
+                <mat-option value="one">Nanhi Kali Foundation</mat-option>
+                <mat-option value="one">Oxfam India Trust</mat-option>
+            </mat-select>
+            <mat-error *ngIf="myError('nameOfNgo', 'required')">NGO name is required</mat-error>
+            <mat-error *ngIf="myError('nameOfNgo', 'minlength')">NGO name should be ateast of 3 characters</mat-error>
+            <mat-error *ngIf="myError('nameOfNgo', 'maxlength')">NGO name can not be more than 40 characters</mat-error>
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Add your working area</mat-label>
+            <input matInput formControlName="areaOfWorking">
+            <mat-error *ngIf="myError('areaOfWorking', 'required')">Working Area is required</mat-error>
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Tax-Benefit</mat-label>
+            <mat-select formControlName="texBenifit">
+                <mat-option disabled>Choose taxbenefit</mat-option>
+                <mat-option *ngFor="let option of taxBenefits" [value]="option.options">
+                    {{option.options}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="myError('texBenifit', 'required')">Please choose an option</mat-error>
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Under-Section</mat-label>
+            <mat-select formControlName="underSection">
+                <mat-option disabled>Choose Under-Section</mat-option>
+                <mat-option *ngFor="let option of underSections" [value]="option.section">
+                    {{option.section}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="myError('underSection', 'required')">Please choose an option</mat-error>
+        </mat-form-field><br>
+
+        <button type="button" mat-raised-button (click)="fileInput.click()" id="adhar">Upload NGO certificate</button>
+        <input hidden type="file" (change)="onNgoDocSelected($event)" #fileInput >&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button type="button" mat-raised-button (click)="filebenifit.click()" id="benifit">Upload tax benifit certificate</button>
+        <input hidden type="file" (change)="ontaxBenifitSelected($event)" #filebenifit ><br><br>
+
+        <mat-form-field id="textarea" class="example-full-width" appearance="outline">
+            <mat-label>Description [Max character 600]</mat-label>
+            <textarea matInput formControlName="descreption" maxlength="600" rows="21" cols="10"></textarea>
+            <mat-error *ngIf="myError('descreption', 'required')">Description is required</mat-error>
+            <mat-error *ngIf="myError('descreption', 'minlength')">Description must be atleast of 10 characters</mat-error>
+            <mat-error *ngIf="myError('descreption', 'maxlength')">Description can not be of more than 600 characters</mat-error>
+        </mat-form-field><br>
+        <button mat-raised-button color="accent"
+            style="position: relative; left: 44%; bottom: 68%; width: 12%;" (click)="onSubmit()">Submit</button>
+    </form>
+</div> -->

@@ -1,0 +1,41 @@
+<div class="newaccountform">
+    <h1 mat-dialog-title style="text-align: center;">Edit Account Details</h1>
+    <div mat-dialog-content style="text-align: center;">
+        <form class="form" [formGroup]="patientDetails">
+            <mat-form-field class="example-full-width">
+                <mat-label>Campaign Id</mat-label>
+                <input matInput formControlName="camp_id">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Patient Name</mat-label>
+                <input matInput formControlName="patient_name">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Phone no.</mat-label>
+                <input matInput formControlName="phone_no">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Cause Category</mat-label>
+                <input matInput formControlName="cause_category">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Desease</mat-label>
+                <input matInput formControlName="desease">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Account Details</mat-label>
+                <input matInput formControlName="account_details">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Medical Docs</mat-label>
+                <input matInput formControlName="medical_docs">
+            </mat-form-field><br>
+        </form>
+        
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close cdkFocusInitial (click)="onSubmit()" [mat-dialog-close]="true" style="left: 35%;"
+            type="submit">Submit</button>
+    </div>
+</div>
+

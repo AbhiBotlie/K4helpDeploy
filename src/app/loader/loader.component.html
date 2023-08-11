@@ -1,0 +1,6 @@
+<div *ngIf="showLoader" class="cssload-container">
+ <div class="cssload" role="status"> 
+  <img [hidden]="imageLoader" src="assets/k.gif" (load)="this.imageLoader = false;"/>
+ </div> 
+</div>
+

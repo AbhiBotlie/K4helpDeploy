@@ -1,0 +1,582 @@
+.banner {
+    height: auto;
+    width: 100%;
+
+}
+
+.dynamicImage {
+    height: 50vh;
+    width: 100%;
+    background-color: aquamarine;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.dynamicImage img {
+    position: absolute;
+    height: 50vh;
+    width: 100%;
+}
+.overlay{
+    background: rgba(0, 0, 0,0.3);
+    height: 50vh;
+    width: 100%;
+}
+.dynamicImage a {
+    position: absolute;
+    text-decoration: none;
+    background-color: #fff;
+    color: blueviolet;
+    padding: 14px 14px;
+    z-index: 1;
+    left: 80%;
+    top: 40%;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.monthlyHelp {
+    height: auto;
+    width: 450px;
+    position: relative;
+    top: 10%;
+    left: 25%;
+}
+
+.monthlyHelp h4 {
+    font-weight: bold;
+    font-size: 7vh;
+    font-style: italic;
+}
+
+.movingText {
+    height: auto;
+    width: 100%;
+    background-color: rgb(162, 195, 214);
+}
+
+.monthlyHelpForm {
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+.helpForm {
+    width: 35%;
+    height: auto;
+    border: 1px solid;
+    position: relative;
+    border-radius: 1.5rem;
+    margin-left: 32%;
+    margin-top: 2%;
+    overflow-y: auto;
+    background-color: white;
+    padding: 1%;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.example-form {
+    width: 80%;
+    margin: auto;
+}
+
+.example-form #matSelect {
+    width: 80%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.mat-input-element {
+    font: inherit;
+    background: white;
+    color: currentColor;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    vertical-align: bottom;
+    text-align: inherit;
+    box-sizing: content-box;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-flex {
+    padding: 0 .75em 0 .75em;
+    margin-top: -0.25em;
+    position: relative;
+}
+
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.helpButton {
+    margin: 0 42%;
+
+}
+
+@media screen and (max-width:470px){
+    .dynamicImage {
+        height: 30vh;
+        width: 100%;
+        background-color: aquamarine;
+    }
+    
+    .dynamicImage img {
+        position: absolute;
+        height: 30vh;
+        width: 100%;
+    }
+    .monthlyHelp {
+        height: auto;
+        width: 279px;
+        position: relative;
+        top: 10%;
+        left: 25%;
+    }
+    .monthlyHelp h4 {
+        font-weight: bold;
+        font-size: 4vh;
+        font-style: italic;
+        display: inline;
+        margin:0px;
+        padding:0px;
+    }
+    .helpForm {
+        width: 90%;
+        height: auto;
+        border: 1px solid;
+        position: relative;
+        border-radius: 1.5rem;
+        margin-left: 5%;
+        margin-top: 8%;
+        overflow-y: auto;
+        background-color: white;
+        padding: 1%;
+        align-items: center;
+        margin-bottom: 2%;
+    }
+    
+}
+
+@media screen and (max-width:767px){
+    .dynamicImage {
+        height: 30vh;
+        width: 100%;
+        background-color: aquamarine;
+    }
+    
+    .dynamicImage img {
+        position: absolute;
+        height: 30vh;
+        width: 100%;
+    }
+    .monthlyHelp {
+        height: auto;
+        width: 279px;
+        position: relative;
+        top: 10%;
+        left: 25%;
+    }
+    .monthlyHelp h4 {
+        font-weight: bold;
+        font-size: 4vh;
+        font-style: italic;
+        display: inline;
+        margin:0px;
+        padding:0px;
+    }
+    .helpForm {
+        width: 90%;
+        height: auto;
+        border: 1px solid;
+        position: relative;
+        border-radius: 1.5rem;
+        margin-left: 5%;
+        margin-top: 8%;
+        overflow-y: auto;
+        background-color: white;
+        padding: 1%;
+        align-items: center;
+        margin-bottom: 2%;
+    }
+    
+}
+
+@media screen and (max-width:910px){
+    .dynamicImage {
+        height: 30vh;
+        width: 100%;
+        background-color: aquamarine;
+    }
+    
+    .dynamicImage img {
+        position: absolute;
+        height: 30vh;
+        width: 100%;
+    }
+    .monthlyHelp {
+        height: auto;
+        width: 279px;
+        position: relative;
+        top: 10%;
+        left: 25%;
+    }
+    .monthlyHelp h4 {
+        font-weight: bold;
+        font-size: 4vh;
+        font-style: italic;
+        display: inline;
+        margin:0px;
+        padding:0px;
+    }
+    .helpForm {
+        width: 90%;
+        height: auto;
+        border: 1px solid;
+        position: relative;
+        border-radius: 1.5rem;
+        margin-left: 5%;
+        margin-top: 8%;
+        overflow-y: auto;
+        background-color: white;
+        padding: 1%;
+        align-items: center;
+        margin-bottom: 2%;
+    }
+    .overlay{
+        height: 30vh;
+        width: 100%;
+    }
+    
+}
+/* ------------------------------------------------ Mobile View ------------------------------------------------------------------*/
+
+/* @media screen and (min-width:200px)and (max-width:350px) {
+    .monthlyHelp {
+        height: auto;
+        width: 450px;
+        position: relative;
+        top: 20%;
+        left: 20%;
+    }
+
+    .monthlyHelp h4 {
+        font-weight: bold;
+        text-align: center;
+        font-size: 3vh;
+        font-style: italic;
+    }
+    .monthlyHelpForm {
+        width: 500px;
+        height: 70vh;
+        background-color: white;
+    }
+
+    .helpForm {
+        width: 325px;
+        height: auto;
+        border: 1px solid;
+        position: relative;
+        border-radius: 1.5rem;
+        margin-left: 18%;
+        margin-top: 2%;
+        overflow-y: auto;
+        background-color: white;
+        padding: 1%;
+        align-items: center;
+    }
+    .example-form {
+        width: 325px;
+        margin: auto;
+    }
+
+    .monthlyHelpButton {
+        margin: 0 40%;
+    }
+}
+
+@media screen and (min-width:351px)and (max-width:600px) {
+    .monthlyHelp {
+        height: auto;
+        width: 450px;
+        position: relative;
+        top: 20%;
+        left: 10%;
+    }
+
+    .monthlyHelp h4 {
+        font-weight: bold;
+        text-align: center;
+        font-size: 3vh;
+        font-style: italic;
+    }
+    .monthlyHelpForm {
+        width: 500px;
+        height: 70vh;
+        background-color: white;
+    }
+    .movingText {
+        height: auto;
+        width: 350px;
+        background-color: rgb(162, 195, 214);
+    }
+
+    .helpForm {
+        width: 325px;
+        height: auto;
+        border: 1px solid;
+        position: relative;
+        border-radius: 1.5rem;
+        margin-left: 4%;
+        margin-top: 2%;
+        overflow-y: auto;
+        background-color: white;
+        padding: 1%;
+        align-items: center;
+    }
+    .example-form {
+        width: 250px;
+        margin: auto;
+    }
+
+    .monthlyHelpButton {
+        margin: 0 40%;
+    }
+}
+
+@media screen and (min-width:601px)and (max-width:900px) {
+    .banner {
+        height: 50vh;
+        width: 500px;
+        background-size: cover;
+        background-color: rgb(202, 202, 202);
+    }
+    .monthlyHelpForm {
+        width: 1000px;
+        height: 70vh;
+        background-color: white;
+    }
+    .movingText {
+        height: auto;
+        width: 750px;
+        background-color: rgb(162, 195, 214);
+    }
+
+    .helpForm {
+        width: 450px;
+        height: auto;
+        border: 1px solid;
+        position: relative;
+        border-radius: 1.5rem;
+        margin-left: 30%;
+        margin-top: 2%;
+        overflow-y: auto;
+        background-color: white;
+        padding: 1%;
+        align-items: center;
+    }
+    .example-form {
+        width: 325px;
+        margin: auto;
+    }
+
+    .monthlyHelp {
+        height: auto;
+        width: 500px;
+        position: relative;
+        top: 20%;
+        left: 30%;
+    }
+    .monthlyHelp h4 {
+        font-weight: bold;
+        font-size: 5vh;
+        font-style: italic;
+    }
+}
+
+@media screen and (min-width:901px)and (max-width:1200px) {
+    .banner {
+        height: 50vh;
+        width:500px;
+        background-size: cover;
+        background-color: rgb(202, 202, 202);
+    }
+    .monthlyHelpForm {
+        width: 500px;
+        height: 70vh;
+        background-color: white;
+    }
+
+    .helpForm {
+
+        width: 400px;
+        height: auto;
+        border: 1px solid;
+        position: relative;
+        border-radius: 1.5rem;
+        margin-left: 80%;
+        margin-top: 2%;
+        overflow-y: auto;
+        background-color: white;
+        padding: 1%;
+        align-items: center;
+    }
+    .example-form {
+        width: 325px;
+        margin: auto;
+    }
+
+    .monthlyHelp {
+        height: auto;
+        width: 50px;
+        position: relative;
+        top: 20%;
+        left: 60%;
+    }
+    .monthlyHelp h4 {
+        font-weight: bold;
+        font-size: 6vh;
+        font-style: italic;
+    }
+    .movingText {
+        height: auto;
+        width: 1155px;
+        background-color: rgb(162, 195, 214);
+    }
+}
+
+@media screen and (min-width:1201px)and (max-width:1500px) {
+    .banner {
+        height: 50vh;
+        width: 500px;
+        background-size: cover;
+        background-color: rgb(202, 202, 202);
+    }
+    .monthlyHelpForm {
+        width: 1500px;
+        height: 70vh;
+        background-color: white;
+    }
+
+    .helpForm {
+
+        width: 500px;
+        height: auto;
+        border: 1px solid;
+        position: relative;
+        border-radius: 1.5rem;
+        margin-left: 80%;
+        margin-top: 2%;
+        overflow-y: auto;
+        background-color: white;
+        padding: 1%;
+        align-items: center;
+    }
+
+    .monthlyHelp {
+        height: auto;
+        width: 1300px;
+        position: relative;
+        top: 10%;
+        left: 30%;
+    }
+    .movingText {
+        height: auto;
+        width: 1400px;
+        background-color: rgb(162, 195, 214);
+    }
+}
+@media screen and (min-width:1501px)and (max-width:1800px) {
+    .banner {
+        height: 50vh;
+        width: 500px;
+        background-size: cover;
+        background-color: rgb(202, 202, 202);
+    }
+    .monthlyHelpForm {
+        width: 1500px;
+        height: 70vh;
+        background-color: white;
+    }
+    .movingText {
+        height: auto;
+        width: 1800px;
+        background-color: rgb(162, 195, 214);
+    }
+
+    .helpForm {
+
+        width: 500px;
+        height: auto;
+        border: 1px solid;
+        position: relative;
+        border-radius: 1.5rem;
+        margin-left: 140%;
+        margin-top: 5%;
+        overflow-y: auto;
+        background-color: white;
+        padding: 1%;
+        align-items: center;
+    }
+
+    .monthlyHelp {
+        height: auto;
+        width: 1300px;
+        position: relative;
+        top: 10%;
+        left: 30%;
+    }
+}
+@media screen and (min-width:1801px)and (max-width:2101px) {
+    .banner {
+        height: 50vh;
+        width: 500px;
+        background-size: cover;
+        background-color: rgb(202, 202, 202);
+    }
+    .monthlyHelpForm {
+        width: 1500px;
+        height: 70vh;
+        background-color: white;
+    }
+
+    .helpForm {
+
+        width: 500px;
+        height: auto;
+        border: 1px solid;
+        position: relative;
+        border-radius: 1.5rem;
+        margin-left: 160%;
+        margin-top: 5%;
+        overflow-y: auto;
+        background-color: white;
+        padding: 1%;
+        align-items: center;
+    }
+
+    .monthlyHelp {
+        height: auto;
+        width: 1300px;
+        position: relative;
+        top: 10%;
+        left: 120%;
+    }
+    .movingText {
+        height: auto;
+        width: 2000px;
+        background-color: rgb(162, 195, 214);
+    }
+} */
+
+
+
+
