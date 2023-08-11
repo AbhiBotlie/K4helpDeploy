@@ -1,0 +1,40 @@
+<div class="banner">
+    <div class="dynamicImage">
+        <img src="{{imageBaseUrl}}/assets/image/drowsecampaign1.jpg" alt="image">
+        <div class="hideColor">
+            <a herf="" routerLink="/Donate">Donate Now &nbsp;<i class="bi bi-arrow-right"></i></a>
+        </div>
+    </div>
+    <div class="sectionCategories col-md-12 px-5">
+        <div class="row p-3">
+            <div class="categorySection col-md-3 rounded-3 my-3 py-3">
+                <div class="categoryDetail p-3 rounded-2">
+                    <h6 class="p-2"><b>CATEGORIES</b></h6>
+                    <hr class="new1">
+                    <button (click)="filterSelection('MOST_NEEDED')" class="btn btn-light col-lg-12">Most Needed
+                        People</button><br>
+                    <button (click)="filterSelection('ALL')" class="btn btn-light col-lg-12">All Camapigns</button>
+                    <hr class="new1">
+                </div>
+            </div>
+            <div class="browserSection col-md-9 p-3">
+                <h5 class="text-center P-3 my-2">BROWSE CAMPAIGN</h5>
+                <div class="row">
+                    <div class="card m-3 p-0 rounded-3" style="width: 20rem;"
+                        *ngFor="let campaigns of filteredCampaign">
+                        <img style="height: 250px; width: 100%;" src="{{imageBaseUrl}}/assets/campagin_banner/{{campaigns.bannerImage}}
+                     " class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{campaigns.patient_name}}</h5>
+                            <p class="card-text" [ngClass]="{'limitTextHeight': true}"
+                                innerHTML="{{campaigns.description}}"></p>
+                        </div>
+                        <button class="btn btn-primary text-light my-1"
+                            routerLink="/campaginpage/{{campaigns.campaignId}}"><b>Read More</b></button>
+                        <button class="btn btn-success text-dark my-1"
+                            (click)="donateNow(campaigns.campaignId)"><b>Donate Now</b></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

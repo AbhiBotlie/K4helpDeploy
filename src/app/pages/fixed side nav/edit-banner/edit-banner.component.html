@@ -1,0 +1,28 @@
+<div class="newbannerform">
+    <h1 mat-dialog-title style="text-align: center;">Edit Account Details</h1>
+    <div mat-dialog-content style="text-align: center;">
+        <form class="form" [formGroup]="bannerDetails">
+            <mat-form-field class="example-full-width">
+                <mat-label>Campaign Id</mat-label>
+                <input matInput formControlName="camp_id">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Campaign Name</mat-label>
+                <input matInput formControlName="campaigner_name">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Banner Image</mat-label>
+                <input matInput formControlName="banner_image">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Text</mat-label>
+                <input matInput formControlName="text">
+            </mat-form-field><br>
+        </form>
+        
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close cdkFocusInitial (click)="onSubmit()" [mat-dialog-close]="true" style="left: 35%;"
+            type="submit">Submit</button>
+    </div>
+</div>

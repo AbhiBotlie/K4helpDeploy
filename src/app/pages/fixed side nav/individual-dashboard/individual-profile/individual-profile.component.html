@@ -1,0 +1,83 @@
+<section class="contact__area grey-bg-2 pt-20 pb-10 mb-30 p-relative fix ">
+  <div class="container">
+      <div class="row">
+          <div class="col-xxl-4 col-xl-4  col-lg-4  col-md-4  box">
+              <h3 class="mt-2 mb-2 ">My Profile</h3>
+          </div>
+          <div class="col-xxl-2 col-xl-2  col-lg-2  col-md-2 offset-md-5 box">
+              <button class="campaignButton btn btn-secondary mt-2 mb-2 " (click)="onClicked()">Start a new
+                  Campaign</button>
+          </div>
+      </div>
+  </div>
+</section>
+  <div class="card mt-5 col-md-10 shadow-lg p-9  bg-white rounded offset-lg-1 offset-md-2">
+    <hr>
+    <div class="col-md-4 offset-md-4 ">
+        <div class="profileImage">
+          <label for="profileimg" class="imcont">
+            <img class="img" src="{{image}}" alt="image not found">
+            <div class="overlay">
+              <div class="text"><i class="fa fa-edit"></i></div>
+            </div>
+            <input type="file" name="profileimg" id="profileimg" style="display:none;">
+          </label>
+        </div>
+      </div>
+      <h3 class="text-center"> <b>{{campaigner_name | titlecase}}</b></h3>
+      
+    <div class="row">
+      <div class="col text-center">
+        <button class="btn btn-primary btn-sm " (click)="changeForm()"><i class="bi bi-pencil-square"></i>
+          &nbsp;&nbsp;Edit</button> 
+      </div>
+    </div>
+      <hr>
+      <div class="row">
+        <div class="col col-md-4 box-1 offset-md-1">Email: <i   >{{camapigner_email}}</i><a
+            (click)="editEmailId()">&nbsp;<i class="bi bi-pen-fill" style="cursor:pointer"></i></a>
+        </div>
+        <div class="col col-md-4 box-2 offset-md-2">Phone Number: <i
+              >{{campaignerNumberval}}</i><a (click)="editPhoneNumber()"><i
+              class="bi bi-pen-fill" style="cursor:pointer"></i></a>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col col-md-4 box-1 offset-md-1">Date of Birth: <i   >{{campaignerdob | date}}</i>
+        </div>
+        <div class="col col-md-4 box-2 offset-md-2">Address : <i   >{{address}}</i>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col col-md-4 box-1 offset-md-1">Aadhar Number: <i
+              >{{campaigneradhar}}</i>
+        </div>
+        <div class="col col-md-4 box-2 offset-md-2">City : <i   >{{city}}</i>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col col-md-4 box-1 offset-md-1">Pan Number: <i   >{{campaignerPan}}</i>
+        </div>
+        <div class="col col-md-4 box-2 offset-md-2">State : <i   >{{state}}</i>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col col-md-4 box-1 offset-md-1">Country : <i   >{{country}}</i>
+        </div>
+        <div class="col col-md-4 box-2 offset-md-2">Pin Code : <i   >{{pincode}}</i>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col col-md-2 offset-md-2">Facebook : <a href="{{campaignerFacebook}}"><i
+              class="bi bi-facebook"></i></a></div>
+        <div class="col col-md-2 offset-md-1">Instagram : <a href="{{campaigner_Instagram}}"><i class="bi bi-instagram"></i></a>
+        </div>
+        <div class="col col-md-2 offset-md-1">LinkedIn : <a href="{{campaignerLinkedin}}"><i class="bi bi-linkedin"></i></a></div>
+      </div>
+      <hr>
+    </div> 

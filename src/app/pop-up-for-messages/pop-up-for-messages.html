@@ -1,0 +1,13 @@
+<div class="msgsection" *ngIf="emailExists">
+    <h6 style="color: rgb(0, 0, 0);">Email id Already exists!!</h6>
+    <br>
+    <button mat-raised-button style="position: relative; left: 37%;" color="primary" (click)="reload()" cdkFocusInitial
+        [mat-dialog-close]="true">ok</button>
+</div>
+
+<div class="container" *ngIf="conformation">
+    <h1 class="text-center">Alert !!</h1>
+    <p class="my-5">If you will upgrade the plan it will affect your fund !</p>
+    <button mat-dialog-close class="btn btn-danger mx-10">No</button>
+    <button mat-dialog-close="true" class="btn btn-success mx-10" >Yes</button>
+</div>

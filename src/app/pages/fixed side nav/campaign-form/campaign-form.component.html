@@ -1,0 +1,93 @@
+<h1 mat-dialog-title class="heading">Start a New Campaign</h1>
+<div mat-dialog-content>
+      <mat-form-field>
+        <mat-label>Campaigner Name</mat-label>
+        <input matInput formControlName="campaigner_name">
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <mat-label>Campaigner Email</mat-label>
+        <input matInput formControlName="campaigner_email">
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <mat-label>Campaigner Number</mat-label>
+        <input matInput formControlName="campaigner_number">
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <mat-label>Patient Name</mat-label>
+        <input matInput formControlName="patient_name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Patient Email</mat-label>
+        <input matInput formControlName="patient_email">
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <mat-label>Patient Number</mat-label>
+        <input matInput>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <mat-label>Patient Age</mat-label>
+        <input matInput>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Patient Condition</mat-label>
+        <mat-select matInput formControlName="patient_condition" placeholder="Select Patient Conditions" required>
+                        <mat-option *ngFor="let condition of conditions" [value]="condition.conditions">
+                            {{condition.conditions}}
+                        </mat-option>
+                    </mat-select>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <mat-label>Select Desease</mat-label>
+        <mat-select formControlName="disease" placeholder="Select Disease" required>
+            <mat-option disabled>Select Disease</mat-option>
+            <mat-option *ngFor="let disease of deseases" [value]="disease.disease">
+                {{disease.disease}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <mat-label>Relation with Patient</mat-label>
+        <mat-select formControlName="patient_relation" placeholder="Select relation with patient" required>
+            <mat-option disabled>Select relation with patient</mat-option>
+            <mat-option *ngFor="let relation of relations" [value]="relation.relation">
+                {{relation.relation}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <mat-label>Campaign Purpose</mat-label>
+        <mat-select formControlName="campaign_purpose" required>
+            <mat-option *ngFor="let medical of medicals" [value]="medical.value">{{medical.value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Required Amount</mat-label>
+        <input matInput>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <mat-label>Target Date</mat-label>
+        <input matInput [matDatepicker]="datepicker" [min]="minDate" [max]="maxDate"formControlName="target_date" required>
+                        <mat-datepicker-toggle class="calender" matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker #picker startView="year" [startAt]="startDate">
+                            <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>Cancel</button>
+                                <button mat-raised-button color="accent" matDatepickerApply>Apply</button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <mat-label>Hospital Name</mat-label>
+        <input matInput>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <mat-label>Pin Code</mat-label>
+        <input matInput>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+<div mat-dialog-actions class="dialogButton">
+    <button mat-button mat-dialog-close cdkFocusInitial [mat-dialog-close]="true">Submit</button>
+</div>

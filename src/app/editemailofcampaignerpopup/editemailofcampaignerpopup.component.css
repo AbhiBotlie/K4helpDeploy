@@ -1,0 +1,13 @@
+.container{
+    align-items: center;
+    text-align: center;
+}
+
+.cancelButton{
+    align-items: end;
+    text-align: end;
+}
+.cancelButton button{
+    background: none;
+    border: none;
+}

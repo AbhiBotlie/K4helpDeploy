@@ -1,0 +1,258 @@
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    width: 400px;
+    height: 650px;
+    border-radius: 12px;
+    background-color: aquamarine;
+    padding: 0PX;
+    margin:0px;
+}
+h5{
+  margin-left: 85px;
+}
+.close{
+    width:50px;
+    margin-left: 80px;
+}
+
+.heading{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.transition  h5{
+    display: inline-block;
+    margin-left:35%;
+}
+
+#icon {
+    background: none;
+    border: none;
+    position: relative;
+    float: right;
+}
+
+.field {
+    width: 100%;
+}
+
+.btn {
+    height: 5vh;
+    width: 20%;
+    position: relative;
+    left: 38%;
+    bottom: 10%;
+}
+
+.moneyOptions {
+    text-align: center;
+    margin: 13px 0;
+}
+
+.mat-dialog-container {
+    display: block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: 0;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    max-height: inherit;
+}
+
+.moneyOptions button {
+    height: 35px;
+    width: 80px;
+    background-color: rgb(60, 196, 60);
+    border-radius: 15px;
+    color: black;
+    margin: 5px 5px;
+
+}
+
+.moneyOptions a {
+    background-color: aqua;
+}
+
+.moneyOptions a:focus-visible {
+    background-color: rgb(202, 202, 202);
+} */
+
+/*
+
+h1{
+    position: relative;
+    top: 0%;
+} */
+
+/*
+.heading{
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+}
+
+mat-form-field{
+    width: 90%;
+}
+button{
+    margin-bottom: 20px;
+} */
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+
+.container-fluid{
+    width:30vw;
+    height: 650px;
+    border-radius: 12px;
+    /* background-color: aquamarine; */
+    margin:0px;
+    padding: 0px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar{
+    width:0em;
+}
+.new1{
+    border:1px solid black;
+}
+
+.prizes a,i{
+    font-size: 12px;
+}
+
+.prize{
+    background-color: rgb(213, 216, 218);   
+}
+
+.prize p{
+    font-size: 10px;
+}
+
+.prize li,a{
+    list-style: none;
+    color: green;
+}
+
+.dropdowns{
+    margin:10px;
+}
+.dropdowns a{
+    font-size: 12px;
+    padding: 0px;
+}
+
+.line{
+    height:2vh;
+    background-color: rgb(213, 216, 218);
+}
+
+.textsection h5{
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.textsection p{
+    /* background: #e8c6c6; */
+    font-size: 13px;
+}
+.imageSection img{
+    height:130px;
+    width:200px;
+}
+
+.checkboxes p,input{
+    font-size: 12px;
+}
+
+.yellow, .bracket{
+    background-color: rgb(251, 233, 153);
+}
+.yellow h5{
+    font-size: 12px;
+}
+.bracket p{
+    font-size: 10px;
+}
+
+.contactForm .input-text{
+    display: block;
+    width:100%;
+    height:25px;
+    border-width:0 0 2px 0;
+    border-color: #000000;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 400;
+}
+
+.contactForm .input-text:focus{
+    outline: none;
+}
+
+.contactForm .label{
+position: absolute;
+left:20px;
+bottom:11px;
+font-size: 13px;
+line-height: 26px;
+font-weight: 400;
+color: #000000;
+cursor: text;
+text-transform: capitalize;
+transition: transform 0.2s ease-in-out;
+}
+
+.contactForm .input-text:focus + .label,
+.contactForm .input-text.not-empty + .label{
+    transform: translateY(-13px);
+}
+
+.form-check p{
+    font-size: 12px;
+}
+
+.verify p{
+    font-size: 12px;
+}
+
+.form-check input, p{
+ font-size: 10px;
+}
+
+.donatebutton{
+    background-color: orange;
+}
+@media screen and (max-width:768px){
+    .container-fluid{
+        width: 85vw;
+        border-radius: 12px;
+        
+    }
+
+    .transitionheading h5{
+     font-size: 15px;
+    }
+
+    .textsection h5{
+        font-size: 14px;
+    }
+    .textsection p{
+        font-size: 10px;
+    }
+    .heading h5{
+       font-size: 1px; 
+    }
+}

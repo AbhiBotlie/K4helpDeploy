@@ -1,0 +1,290 @@
+
+.matkaryesabkaam{
+	border:1px solid rgb(0, 0, 0);
+	height: 30vh;
+	background-color: antiquewhite;
+}
+
+.topneeded{
+	min-height: 300px;
+	height: auto;
+}
+
+#ourpromises{
+	background: rgb(202, 225, 244);
+	border:1px solid rgb(0, 0, 0);
+}
+.section2{
+	background-color:rgb(125, 185, 234);
+	border:1px solid rgb(0, 0, 0);
+	height:30vh;
+	box-shadow: 0px 2px 10px 0 rgba(0, 0, 0, .4), 0 4px 30px 0 rgba(0, 0, 0, .4);
+	transition: 1s;
+	cursor: pointer;
+}
+.section2:hover{
+	background-color: blueviolet;
+	transform: scale(0.950);
+	color:white;
+	z-index: 2;
+	border: 2px solid rgb(0, 0, 0);
+
+}
+.ourPromises{
+	border:3px solid rgb(20, 110, 207);
+	height:25vh;
+	box-shadow: 0px 2px 5px 0 rgba(16, 5, 181, 0.4), 0 4px 15px 0 rgba(9, 39, 213, 0.4);
+	transition: 1s;
+	cursor: pointer;
+}
+
+.ourPromises:hover{
+   background-color: black;
+   color: aliceblue;
+   border:4px solid black;
+   transform: scale(0.970);
+}
+
+.donor{
+	border:1px solid rgb(0, 0, 0);
+}
+
+.overlay{
+    background: rgba(0, 0, 0,0.5);
+    height: 60vh;
+    width: 100%;
+
+}
+.overlay img{
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+}
+.dynamicImage {
+    height: 60vh;
+    width: 100%;
+    background-color: aquamarine;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+
+.dynamicImage a {
+    position: absolute;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(135, 28, 206);
+    padding: 14px 14px;
+    z-index: 1;
+    left: 10%;
+	top:60%;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.limitTextHeight {
+	height: 80px;
+	overflow: hidden;
+}
+
+.dynamicImage a:hover {
+    background-color: blueviolet;
+    color: rgb(243, 243, 243);
+    box-shadow: 3.9px 7.8px 7.8px hsl(0deg 0% 0% / 0.38);
+    transform: scale(0.3s);
+}
+
+.textArea {
+    position: absolute;
+    z-index: 1;
+    top: 20%;
+    left: 10%;
+    display: inline-block;
+}
+
+.textArea h1 {
+    font-size: 60px;
+    font-weight: 600;
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+    background: url("/assets/image/back.png");
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+    text-shadow: rgb(255, 255, 255) 5px -5px 20px, rgb(255, 242, 242) -5px 5px 30px;
+}
+
+
+.product{
+	padding: 20px 0px;
+	overflow: hidden;
+	
+}
+
+.slider-wrap{
+	position: relative;
+}
+.slider-main{
+	position: relative;
+	width: 1000%;
+}
+.item{
+	display: inline-block;
+	width:312px;
+	height:150px;
+	background: rgb(151,2,2);
+	position: relative;
+	margin:0px 12px;
+	transform: translateX(-312px);
+	transition: transform 250ms;
+
+}
+
+.text{
+	position: relative;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------------------------  */
+@keyframes back {
+    100% {
+        background-position: 2000px 0;
+    }
+}
+
+.textArea h4 {
+    background-color: rgb(209, 208, 208);
+    font-weight: 600;
+    display: inline;
+    font-size: 23px;
+    text-shadow: rgb(95, 95, 95) 5px -5px 20px, rgb(24, 91, 227) -5px 5px 30px;
+}
+
+.textArea h4:hover span {
+    color: #fff;
+    text-shadow: 0 0 10px #fff,
+}
+
+.textArea p {
+    font-weight: 500;
+    text-shadow: rgb(95, 95, 95) 5px -5px 20px, rgb(21, 37, 214) -5px 5px 30px;
+}
+
+
+@media screen and (max-width:910px){
+	h5{
+		font-size: 13px;
+	}
+	.dynamicImage a {
+		position: absolute;
+		padding: 15px 20px;
+		z-index: 1;
+		left: 10%;
+		top: 40%;
+		font-size: 15px;
+	}
+	.textArea p {
+		font-weight: 600;
+		font-size: 25px;
+		color: #fff;
+		
+	}
+	.dynamicImage, .overlay {
+		height: 45vh;
+		width: 100%;
+	}
+	.matkaryesabkaam, .section2, .ourPromises{
+		height:17vh;
+	}
+}
+
+
+@media screen and (max-width:767px){
+	h5{
+		font-size: 13px;
+	}
+	.dynamicImage a {
+		position: absolute;
+		padding: 10px 7px;
+		z-index: 1;
+		left: 10%;
+		top: 45%;
+		font-size: 15px;
+	}
+	.textArea p {
+		font-size: 20px;
+		padding: 0px;
+		margin: 0px;
+		text-shadow: rgb(95, 95, 95) 5px -5px 20px, rgb(21, 37, 214) -5px 5px 30px;
+	}
+}
+
+@media screen and (max-width:470px){
+
+	.textArea h1 {
+		font-size: 25px;
+	}
+	.dynamicImage, .overlay{
+		height: 40vh;
+		width: 100%;
+		/* background-color: aquamarine; */
+	}
+	.dynamicImage img {
+		position: absolute;
+		height: 40vh;
+		width: 100%;
+	}
+	.textArea h4 {
+		font-size: 13px;
+
+	}
+	.textArea p {
+		font-size: 10px;
+		padding: 0px;
+		margin: 0px;
+		text-shadow: rgb(95, 95, 95) 5px -5px 20px, rgb(21, 37, 214) -5px 5px 30px;
+	}
+
+	h5{
+		font-size: 22px;
+	}
+	.matkaryesabkaam, .section2, .ourPromises{
+		height:24vh;
+	}
+	.dynamicImage a{
+		top: 72%;
+
+	}
+}
+
+.carousel-cell .mat-card
+{
+	background-color: #cccccc;;
+}
+.carousel-cell .mat-card .mat-card-image {
+	margin: 0px ;
+}
+.mat-card-header .mat-card-header-text
+{
+margin:0px 0px !important;
+font-size: 29px;
+font-weight: 600 !important;
+}

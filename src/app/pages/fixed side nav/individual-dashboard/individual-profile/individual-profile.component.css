@@ -1,0 +1,38 @@
+.img {
+  height: 150px; width: 150px; border-radius: 50%;
+}
+.imcont {
+  position: relative;
+  left: 25%;
+  cursor: pointer;
+  text-align:center;
+  font-size:11px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px; width: 150px; 
+  border-radius: 50%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #2b4eff;
+}
+
+.imcont:hover .overlay {
+  opacity: .8;
+}
+.text {
+  color: #fff;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity:1;
+}

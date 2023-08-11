@@ -1,0 +1,212 @@
+<div class="content">
+    <div class="imageStart">
+        <img src="assets/image/start.jpg" alt="image">
+        <div class="imageOntext">
+            <h1>Start Campaign</h1>
+        </div>
+    </div>
+    <div class="movingText">
+        <marquee><b>Start a new Campaign and help patients in India afford life-saving treatment on time.</b></marquee>
+    </div>
+
+    <!------------------------------------------------ Patient Details form --------------------------------------------------->
+
+    <div class="container">
+        <div *ngIf="isNgoSecondFormVisible">
+            <form [formGroup]="ngoForm" class="example-form">
+                <input type="hidden" formControlName="campaignerId">
+
+                <h6>Patient Details</h6>
+                <mat-form-field>
+                    <mat-label>Patient Name</mat-label>
+                    <input type="text" matInput formControlName="patient_name" (keypress)="letterOnly($event)" required>
+                    <mat-error *ngIf="myError('patient_name', 'pattern')">Please enter a valid name</mat-error>
+                    <mat-error *ngIf="myError('patient_name', 'required')">Name is required</mat-error>
+                    <mat-error *ngIf="myError('patient_name', 'minlength')">Name should have atleast 3
+                        characters</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Age</mat-label>
+                    <input type="tel" matInput formControlName="patient_age" (keypress)="restrictZero($event)" required
+                        (keypress)="OnlyNumbersAllowed($event)">
+                    <mat-error *ngIf="myError('patient_age', 'pattern')">Please enter a valid age</mat-error>
+                    <mat-error *ngIf="myError('patient_age', 'required')">Age is required</mat-error>
+                </mat-form-field>
+
+                <div class="gender">
+                    <label>
+                        <h5>Gender:</h5>
+                    </label>
+                    <mat-radio-group formControlName="gender" required>
+                        <mat-radio-button value="Male">Male</mat-radio-button>
+                        <mat-radio-button value="Female">Female</mat-radio-button>
+                        <mat-radio-button value="Others">Others</mat-radio-button>
+                        <!-- <mat-error *ngIf="myError('gender', 'required')">Please select gender </mat-error>  -->
+                    </mat-radio-group>
+                </div>
+
+                <mat-form-field>
+                    <mat-label>Phone number</mat-label>
+                    <input type="tel" matInput formControlName="patient_number" (keypress)="OnlyNumbersAllowed($event)"
+                        required minlength="10" maxlength="10">
+                    <mat-error *ngIf="myError('patient_number', 'pattern')">Please enter a valid phone
+                        number</mat-error>
+                    <mat-error *ngIf="myError('patient_number', 'required')">Phone number is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="patient_email" placeholder="abc@gmail.com"
+                        (keypress)="restrictZero($event)">
+                    <mat-error *ngIf="myError('patient_email', 'pattern')">Please enter a valid email
+                        address</mat-error>
+                    <mat-error *ngIf="myError('patient_email', 'required')">Email is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select matInput formControlName="patient_condition"
+                         placeholder="Select Patient Conditions" required>
+                        <mat-option disabled>Select Patient Condition</mat-option>
+                        <mat-option *ngFor="let condition of conditions" [value]="condition.conditions">
+                            {{condition.conditions}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="myError('patient_condition', 'required')">Patient condition is
+                        required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput aria-label="City" [matAutocomplete]="auto" formControlName="city" placeholder="City"
+                        (keypress)="letterOnly($event)" required>
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option disabled>Select City</mat-option>
+                        <mat-option *ngFor="let city of filteredCities | async" [value]="city.name">
+                            <span>{{city.name}}</span>
+                        </mat-option>
+                    </mat-autocomplete>
+                    <mat-error *ngIf="myError('city', 'required')">Please choose a city</mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="accent" [disabled]="!ngoForm.valid" type="button" (click)="submitFirstForm()">Next</button>
+            </form>
+        </div>
+
+        <!------------------------------------------------ Hospital form --------------------------------------------------->
+
+        <div class="hospitalForm" *ngIf="isHospitalPageShow">
+            <form [formGroup]="ngoForm_2">
+
+                <mat-form-field>
+                    <mat-label>Hospital Name</mat-label>
+                    <input matInput aria-label="City" [matAutocomplete]="auto" formControlName="hospital_Detail"
+                        placeholder="Hospital Name and Address">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option disabled>Select City</mat-option>
+                        <mat-option *ngFor="let city of filteredCities | async" [value]="city.name">
+                            <span>{{city.name}}</span>
+                        </mat-option>
+                    </mat-autocomplete>
+                    <mat-error *ngIf="myError1('hospital_Detail', 'required')">Please choose/enter a Hospital
+                        name</mat-error>
+                </mat-form-field>
+                <h6>Or / </h6>
+                <button mat-raised-button class="othersButton" (click)="stateHandle()">Others</button>
+
+                <mat-form-field>
+                    <input matInput formControlName="hospital_name" min="3" (keypress)="letterOnly($event)"
+                        placeholder="Hospital Name" required>
+                    <mat-error *ngIf="myError1('hospital_name', 'pattern')">Please enter a valid Hospital
+                        name</mat-error>
+                    <mat-error *ngIf="myError1('hospital_name', 'required')">Hospital name is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field id="hospitalCity">
+                    <input matInput formControlName="hospital_city" min="3" placeholder="Hospital City" required>
+                    <mat-error *ngIf="myError1('hospital_city', 'required')">Please choose a city</mat-error>
+                </mat-form-field>
+
+                <mat-form-field id="hospitalCity">
+                    <input type="tel" matInput formControlName="pin_code" (keypress)="OnlyNumbersAllowed($event)"
+                        placeholder="Hospital Pin/Zip Code" required>
+                    <mat-error *ngIf="myError1('pin_code', 'pattern')">Please enter a valid pin code</mat-error>
+                    <mat-error *ngIf="myError1('pin_code', 'required')">Pin-Code is required</mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="accent" id="indiBackButton"
+                    (click)="hospitalBackClick()">Back</button>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <button mat-raised-button color="accent" (click)="postHospitalForm()"
+                    [disabled]="!ngoForm_2.valid">Next</button>
+
+
+            </form>
+        </div>
+
+        <!------------------------------------------------ Serious form --------------------------------------------------->
+
+        <div *ngIf="isNgoThirdFormVisible">
+            <form [formGroup]="ngoForm_3">
+
+                <mat-form-field>
+                    <mat-label>Select purpose</mat-label>
+                    <mat-select formControlName="campaign_purpose" required>
+                        <mat-option disabled>Select Purpose</mat-option>
+                        <mat-option *ngFor="let medical of medicals"
+                            [value]="medical.value">{{medical.value}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="myError2('campaign_purpose', 'required')">Please choose the campaign
+                        purpose</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select formControlName="disease" placeholder="Select Disease" required>
+                        <mat-option disabled>Select Disease</mat-option>
+                        <mat-option *ngFor="let disease of deseases" [value]="disease.disease">
+                            {{disease.disease}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="myError2('disease', 'required')">Please choose an option</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="tel" (keypress)="restrictZero($event)" formControlName="required_amount"
+                        placeholder="Required Amount" required (keypress)="OnlyNumbersAllowed($event)">
+                    <mat-error *ngIf="myError2('required_amount', 'minlength')">Amount must be atleast of 4
+                        digits</mat-error>
+                    <mat-error *ngIf="myError2('required_amount', 'pattern')">Please enter a valid amount</mat-error>
+                    <mat-error *ngIf="myError2('required_amount', 'required')">Amount is required</mat-error>
+                </mat-form-field>
+
+                <div>
+                    <mat-form-field id="date">
+                        <mat-label>Target Date</mat-label>
+                        <input matInput [matDatepicker]="datepicker" [min]="minDate" [max]="maxDate"
+                            formControlName="target_date" required>
+                        <mat-datepicker-toggle class="calender" matIconSuffix
+                            [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                        <mat-error *ngIf="myError2('target_date', 'startDate')">Please enter a valid date</mat-error>
+                        <mat-error *ngIf="myError2('target_date', 'required')">Date is required</mat-error>
+                    </mat-form-field>
+                    <h1 class="leftdays">{{selectedDate | number:'1.0-0'}}</h1><span class="span">Days left</span>
+                </div><br>
+
+                <mat-form-field>
+                    <mat-select formControlName="patient_relation" placeholder="Select relation with patient" required>
+                        <mat-option disabled>Select Relation with Patient</mat-option>
+                        <mat-option *ngFor="let relation of relations" [value]="relation.relation">
+                            {{relation.relation}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="myError2('patient_relation', 'required')">Please choose an option</mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="accent"
+                    (click)="ngoSecondBackClick()">Back</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button mat-raised-button type="button" (click)="updateFormData()" color="accent"
+                    [disabled]="!ngoForm_3.valid" routerLink="/individualdashboard/individualprofile">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</div>

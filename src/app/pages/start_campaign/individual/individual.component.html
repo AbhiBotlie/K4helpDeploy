@@ -1,0 +1,178 @@
+<div class="content">
+    <div class="imageStart">
+        <img src="{{image}}" alt="image">
+        <div class="imageOntext">
+            <h1>Start Campaign</h1>
+        </div>
+    </div>
+    <div class="movingText">
+        <marquee><b>{{movingText}}</b></marquee>
+    </div>
+    <div class="container">
+
+        <div class="patient_Details" *ngIf="isIndividualSecondDivVisisble">
+            <h6>Patient Details</h6>
+            <form [formGroup]="userForm" class="example-form" novalidate fxLayout="column wrap"
+                fxLayoutAlign="center center" fxLayoutGap="10px">
+                <input type="hidden" formControlName="campaignerId" required>
+
+                <mat-form-field>
+                    <mat-label>Patient Name</mat-label>
+                    <input type="text" matInput formControlName="patient_name" required minlength="3"
+                        (keypress)="letterOnly($event)" required>
+                    <mat-error *ngIf="userForm.controls['patient_name'].hasError('required')">
+                        Name is <strong>Required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userForm.controls['patient_name'].hasError('minlength')">
+                        Name must be atleast of <strong>3 characters</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userForm.controls['patient_name'].hasError('maxlength')">
+                        Name must be less than <strong>40 characters</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Age</mat-label>
+                    <input type="tel" matInput formControlName="patient_age" required minlength="1" maxlength="2"
+                        (keypress)="restrictZero($event)" required (keypress)="OnlyNumbersAllowed($event)">
+
+                    <mat-error *ngIf="userForm.controls['patient_age'].hasError('pattern')">
+                        Age should be of <strong>2 digits</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userForm.controls['patient_age'].hasError('required')">
+                        Age is <strong>Required !</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="gender">
+                    <label>
+                        <h5>Gender:</h5>
+                    </label>
+                    <mat-radio-group formControlName="gender" required>
+                        <mat-radio-button value="Male">Male</mat-radio-button>
+                        <mat-radio-button value="Female">Female</mat-radio-button>
+                        <mat-radio-button value="Others">Others</mat-radio-button>
+                        <!-- <mat-error *ngIf="myError('gender', 'required')">Please select gender </mat-error> -->
+                    </mat-radio-group>
+                </div>
+
+                <mat-form-field>
+                    <mat-label>Phone number</mat-label>
+                    <input type="tel" matInput formControlName="patient_number" (keypress)="OnlyNumbersAllowed($event)"
+                        required minlength="10" maxlength="10">
+
+                    <mat-error *ngIf="userForm.controls['patient_number'].hasError('required')">
+                        Number is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userForm.controls['patient_number'].hasError('pattern')">
+                        Number should starts from <strong>6-9</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userForm.controls['patient_number'].hasError('minlength')">
+                        Number should be of <strong>10 digits</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="patient_email" placeholder="abc@gmail.com"
+                        (keypress)="restrictZero($event)">
+
+                    <mat-error *ngIf="userForm.controls['patient_email'].hasError('required')">
+                        Email is <strong>Required !</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userForm.controls['patient_email'].hasError('pattern')">
+                        Please enter a valid <strong>Email</strong> address
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field id="selectDropDown">
+                    <mat-select matInput formControlName="patient_condition" placeholder="Select Patient Conditions"
+                        required>
+                        <mat-option disabled>Select Patient Condition</mat-option>
+                        <mat-option *ngFor="let condition of conditions" [value]="condition.conditions">
+                            <span>{{condition.conditions}}</span>
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="myError('patient_condition', 'required')">Patient condition is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput aria-label="City" [matAutocomplete]="auto" formControlName="city" placeholder="City"
+                        (keypress)="letterOnly($event)" required>
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option disabled>Select City</mat-option>
+                        <mat-option *ngFor="let city of cities" [value]="city.city">
+                            <span>{{city.city}}</span>
+                        </mat-option>
+                    </mat-autocomplete>
+                    <mat-error *ngIf="userForm.controls['city'].hasError('required')">Please choose a city</mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="accent" [disabled]="!userForm.valid"
+                    (click)="individualSecondNextClick()" id="nextButton">Next</button>
+            </form>
+        </div>
+
+        <div class="persional_Details" *ngIf="isIndividualThirdFormVisible">
+            <form [formGroup]="userForm2" class="example-form" novalidate fxLayout="column wrap"
+                fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field>
+                    <mat-label>Select purpose</mat-label>
+                    <mat-select formControlName="campaign_purpose" placeholder="">
+                        <mat-option *ngFor="let medical of medicals"
+                            value="{{medical.type}}">{{medical.type}}</mat-option>
+
+                    </mat-select>
+                    <mat-error>Please choose an option</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select formControlName="cause_category" placeholder="Select Disease" required>
+                        <mat-option *ngFor="let disease of deseases" [value]="disease.disease">
+                            {{disease.disease}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="myError2('cause_category', 'required')">Please choose an option</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="tel" pattern="[1-9]+[0-9]+[0-9]" (keypress)="restrictZero($event)"
+                        minlength="4" formControlName="required_amount" placeholder="Required Amount" required
+                        (keypress)="OnlyNumbersAllowed($event)">
+                    <mat-error *ngIf="myError2('required_amount', 'required')">Amount is required</mat-error>
+                    <mat-error *ngIf="myError2('required_amount', 'pattern')">Please enter a valid amount</mat-error>
+                    <mat-error *ngIf="userForm2.controls['required_amount'].hasError('min')">
+                        Amount should be <strong>>= 25000!</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <div>
+                    <mat-form-field id="date">
+                        <mat-label>Target Date</mat-label>
+                        <input type="date" matInput [matDatepicker]="picker" [min]="minDate"
+                            formControlName="target_date" (dateChange)="addEvent($event)">
+                        <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> -->
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="myError2('target_date', 'startDate')">Please enter a valid date</mat-error>
+                        <mat-error *ngIf="myError2('target_date', 'required')">Date is required</mat-error>
+                    </mat-form-field>
+                    <h1 class="leftdays">{{leftDays}}</h1><span class="span">Days left</span>
+                </div><br>
+
+                <mat-form-field>
+                    <mat-select formControlName="patient_relation" placeholder="Select relation with patient" required>
+                        <mat-option *ngFor="let relation of relations" [value]="relation.relation">
+                            {{relation.relation}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="myError2('patient_relation','required')">Please choose an option</mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="accent" (click)="individualSecondBackClick()">Back</button>&nbsp;&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <button mat-raised-button color="accent" type="button" (click)="onSubmit()"
+                    [disabled]="!userForm2.valid" routerLink="/individualdashboard/individualprofile">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>

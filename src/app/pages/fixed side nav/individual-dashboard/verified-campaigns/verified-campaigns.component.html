@@ -1,0 +1,209 @@
+<!-- <div class="heading">
+    <h1>Completed Campaigns</h1>
+</div>
+<div class="form">
+    <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="serialNo">
+            <th mat-header-cell *matHeaderCellDef>Sr.no </th>
+            <td mat-cell *matCellDef="let element1 ,let i = index;"> {{i+1}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="campaignerId">
+            <th mat-header-cell *matHeaderCellDef> C.id </th>
+            <td mat-cell *matCellDef="let element">{{element.campaignId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="campaignerName">
+            <th mat-header-cell *matHeaderCellDef> Campaign Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.patient_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Startdate /lastdate">
+            <th mat-header-cell *matHeaderCellDef> Startdate/lastdate</th>
+            <td mat-cell *matCellDef="let element"> {{element.target_date}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Recived Amount">
+            <th mat-header-cell *matHeaderCellDef>Recived Amount </th>
+            <td mat-cell *matCellDef="let element">{{element.collected_amount}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Required Amount">
+            <th mat-header-cell *matHeaderCellDef>Required Amount </th>
+            <td mat-cell *matCellDef="let element">{{element.required_amount}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Remaining Amount">
+            <th mat-header-cell *matHeaderCellDef>Remaining Amount </th>
+            <td mat-cell *matCellDef="let element">{{element.name}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Withdrwal Amount">
+            <th mat-header-cell *matHeaderCellDef>Withdrwal Amount (in %age) </th>
+            <td mat-cell *matCellDef="let element">{{element.withdrawl_amount}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Final View">
+            <th mat-header-cell *matHeaderCellDef>Final View</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button color="warn" (click)="chnageToEditable(element.campaignId)">
+                    <mat-icon>edit</mat-icon>
+                  </button>&nbsp;
+                <button mat-icon-button color="warn" (click)="viewIncompleteCampaignPage(element.campaignId)">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="MyCampagin" style="background-color: rgb(223, 223, 223);"></tr>
+        <tr mat-row *matRowDef="let row; columns: MyCampagin;"></tr>
+    </table>
+</div>
+<div class="divider">
+    <mat-paginator style-paginator #paginator id="style-paginator" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="true" [length]="pageLength" [pageSize]="pageSize" [showTotalPages]="5" [pageIndex]="currentPage" (page)="handlePage($event)">
+    </mat-paginator>
+</div> -->
+<!-- 
+
+
+<div class="container">
+    <div class="breks">
+        <br><br><br>
+    </div>
+    <div class="heading col-md-10 mt-5">
+        <h1 class="pt-5 offset-md-2">Completed Campaigns</h1>
+    </div>
+    <div class="form col-md-10 offset-lg-2 border p-0">
+        <div class="tablesinside">
+            <table mat-table [dataSource]="dataSource">
+
+                <ng-container matColumnDef="serialNo">
+                    <th mat-header-cell *matHeaderCellDef>Sr.no </th>
+                    <td mat-cell *matCellDef="let element1 ,let i = index;"> {{i+1}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="campaignerId">
+                    <th mat-header-cell *matHeaderCellDef> C.id </th>
+                    <td mat-cell *matCellDef="let element">{{element.campaignId}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="campaignerName">
+                    <th mat-header-cell *matHeaderCellDef> Campaign Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.patient_name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Startdate /lastdate">
+                    <th mat-header-cell *matHeaderCellDef> Startdate/lastdate</th>
+                    <td mat-cell *matCellDef="let element"> {{element.target_date}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Recived Amount">
+                    <th mat-header-cell *matHeaderCellDef>Recived Amount </th>
+                    <td mat-cell *matCellDef="let element">{{element.collected_amount}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Required Amount">
+                    <th mat-header-cell *matHeaderCellDef>Required Amount </th>
+                    <td mat-cell *matCellDef="let element">{{element.required_amount}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Remaining Amount">
+                    <th mat-header-cell *matHeaderCellDef>Remaining Amount </th>
+                    <td mat-cell *matCellDef="let element">{{element.name}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Withdrwal Amount">
+                    <th mat-header-cell *matHeaderCellDef>Withdrwal Amount (in %age) </th>
+                    <td mat-cell *matCellDef="let element">{{element.withdrawl_amount}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Final View">
+                    <th mat-header-cell *matHeaderCellDef>Final View</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button color="warn" (click)="chnageToEditable(element.campaignId)">
+                            <mat-icon>edit</mat-icon>
+                        </button>&nbsp;
+                        <button mat-icon-button color="warn" (click)="viewIncompleteCampaignPage(element.campaignId)">
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="MyCampagin" style="background-color: rgb(223, 223, 223);"></tr>
+                <tr mat-row *matRowDef="let row; columns: MyCampagin;"></tr>
+            </table>
+        </div>
+    </div>
+    <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="true"
+        [length]="totalSize" [pageIndex]="currentPage" (page)="handlePage($event)">
+    </mat-paginator>
+</div> -->
+
+
+<section class="contact__area grey-bg-2 pt-20 pb-10 mb-30 p-relative fix ">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-4 col-xl-4  col-lg-4  col-md-4  box">
+                <h3 class="mt-2 mb-2 ">Complete Campagins</h3>
+            </div>
+            <div class="col-xxl-2 col-xl-2  col-lg-2  col-md-2 offset-md-5 box">
+                <button class="campaignButton btn btn-secondary mt-2 mb-2 " (click)="onClicked()">Start a new
+                    Campaign</button>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<div class="container col-md-12 ">
+    <mat-card>
+        <br>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Sr.no</th>
+                        <th scope="col">Campaign Id</th>
+                        <th scope="col">Campaign Name</th>
+                        <th scope="col">Start/last date</th>
+                        <th scope="col">Recived Amount</th>
+                        <th scope="col">Required Amount</th>
+                        <th scope="col">Remaining Amount</th>
+                        <th scope="col">Withdrwal Amount </th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let element of dataSource; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{element.campaignId}}</td>
+                    <td>{{element.patient_name}}</td>
+                    <td>{{element.target_date  | date}}</td>
+                    <td>{{element.collected_amount}}</td>
+                    <td>{{element.required_amount}}</td>
+                    <td>{{element.id}}</td>
+                    <td>{{element.withdrawl_amount}}</td>
+                    <td>
+                         <button mat-icon-button color="warn" (click)="chnageToEditable(element.campaignId)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary"
+                            (click)="viewIncompleteCampaignPage(element.campaignId)">
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </mat-card>
+
+</div>

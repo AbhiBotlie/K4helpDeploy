@@ -1,0 +1,102 @@
+.heading{
+  width:80vw;
+}
+
+.heading h1{
+  font-size: 25px;
+}
+
+.rightSection{
+  height:70vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.leftSection{
+  height:70vh;
+  overflow-y: scroll;
+}
+.progressbar{
+  height:7vh;
+   width:100%;
+   border-radius: 10px;
+   padding-top:8px;
+   padding-left: 13px;
+  border: 1px solid grey;
+  margin:10px 0px;
+}
+
+.progress {
+  background: rgba(7, 4, 4, 0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 0px;
+  display: flex;
+  width: 100%;
+}
+
+.kycImages{
+  overflow-x: scroll;
+}
+.progress-value {
+  animation: load 3s normal forwards;
+  box-shadow: 0 10px 40px -10px rgb(0, 0, 0);
+  border-radius: 100px;
+  background: rgb(107, 161, 222);
+  height: 30px;
+  width: 0;
+}
+
+.buttons{
+  margin: 10px 0px;
+}
+
+@keyframes load {
+  0% { width: 0; }
+  100% { width: 68%; }
+}
+
+table {
+  width: 100%;
+}
+
+::-webkit-scrollbar{
+  height:0px;
+  width:0px;
+}
+
+#none{
+visibility: hidden;
+}
+
+
+
+@media screen and (max-width:768px){
+  .accoutn{
+  margin-left:25%;
+  }
+  .mobile{display: block;}
+  .desktop{display: none;}
+}
+
+.box-1{
+  max-height: 530px;
+  overflow-y: auto;
+    
+}
+.box-2{
+  max-height: 530px;
+  overflow-y: auto;
+ 
+}
+.border-left{border-left: solid 1px #333;}
+.mobile{ display: none;}
+.desktop{ display: block;}
+
+#southEX{
+  position: relative;
+  width: 55%;
+  left: 25%;
+}
+

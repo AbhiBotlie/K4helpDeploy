@@ -1,0 +1,68 @@
+<div class="banner">
+    <div class="dynamicImage">
+        <div class="overlay">
+        <img src="{{imageBaseUrl}}/assets/image/monthlhelp.jpg" alt="img">
+        <!-- <img src="assets/image/monthlhelp.jpg" class="img-fluid" alt="image"> -->
+        <div class="monthlyHelp">
+            <h4>MONTHLY HELP</h4>
+        </div>
+        </div>
+    </div>
+    <div class="movingText">
+        <marquee><b>{{movingText}}</b></marquee>
+    </div>
+    <div class="monthlyHelpform">
+        <div class="helpForm">
+            <form class="example-form" [formGroup]="monthlyHelp" (ngSubmit)="onSubmit()">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Name</mat-label>
+                    <input type="text" #input minlength="3" formControlName="name" matInput placeholder="Ex:- Anu" (keypress)="letterOnly($event)">
+                    <mat-hint align="end">{{input.value.length}}</mat-hint>
+                    <mat-error *ngIf="!myError('name', 'required')">
+                        Please enter a valid name
+                    </mat-error>
+                    <mat-error *ngIf="myError('name', 'required')">
+                        Name is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email Id</mat-label>
+                    <input type="email" formControlName="email" matInput placeholder="Ex:- abc@gmail.com" (keypress)="restrictZero($event)">
+                    <mat-error *ngIf="myError('email', 'pattern') && !myError('email','required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="myError('email', 'required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Amount</mat-label>
+                    <input type="tel" matInput placeholder="2,000" formControlName="amount" required (keypress)="restrictZero($event)" (keypress)="OnlyNumbersAllowed($event)">
+                    <mat-error *ngIf="myError('amount','minLength') && !myError('amount','required')">
+                        Please enter an amount
+                    </mat-error>
+                    <mat-error *ngIf="myError('amount', 'required')">
+                        Amount is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Select Plan</mat-label>
+                    <mat-select formControlName="plan" required>
+                        <mat-option disabled>Select Plan</mat-option>
+                        <mat-option *ngFor="let plan of frequencyData" [value]="plan.options">{{plan.options}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="myError('plan', 'required')">Please choose a purpose</mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Select Purpose</mat-label>
+                    <mat-select formControlName="selectpurpose" required>
+                        <mat-option disabled>Select Purpose</mat-option>
+                        <mat-option *ngFor="let purpose of purposeData" [value]="purpose.value">{{purpose.value}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="myError('selectpurpose', 'required')">Please choose a purpose</mat-error>
+                </mat-form-field>
+                <button mat-raised-button style="background-color: rgb(153, 194, 232);" class="helpButton">Next</button>
+            </form>
+        </div>
+    </div>
+</div>

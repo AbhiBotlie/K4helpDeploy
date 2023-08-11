@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="cancelButton">
+        <button mat-dialog-close="true"><mat-icon>close</mat-icon></button>
+    </div>
+    <h4><b>Update Email</b></h4>
+    <form [formGroup]="editEmail">
+        <mat-form-field>
+            <input matInput type="email" formControlName="campaignerEmail" placeholder="Campaigner Email" required>
+            <mat-error *ngIf="editEmail.controls['campaignerEmail'].hasError('required')">
+                Email is <strong>Required !</strong>
+            </mat-error>
+            <mat-error *ngIf="editEmail.controls['campaignerEmail'].hasError('pattern')">
+                Please enter a valid <strong>Email</strong> address
+            </mat-error>
+        </mat-form-field><br>
+        <button mat-raised-button type="submit" color="accent" [disabled]="!isOtpButtonDisabled" (click)="getOTP()">Get
+            Otp</button>
+
+        <div *ngIf="showOtpField">
+            <mat-form-field>
+                <input matInput formControlName="otp" minlength="4" maxlength="4"
+                    (keypress)="OnlyNumbersAllowed($event)" placeholder="Enter OTP" id="myOtp" required>
+                <mat-error *ngIf="editEmail.controls['otp'].hasError('required')">OTP is required</mat-error>
+                <mat-error *ngIf="editEmail.controls['otp'].hasError('pattern')">Enter Valid OTP</mat-error>
+            </mat-form-field><br>
+            <input type="hidden" value="2" formControlName="campaignerId">
+            <button mat-raised-button color="accent" (click)="onSubmit()" mat-dialog-close>Verify</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,226 @@
+<header class="bg-dark">
+    <div class="dynamicImage">
+
+        <div class="overlay">
+            <img src="{{imageBaseUrl}}/assets/image/home.jpg" alt="image">
+            <div class="textArea">
+                <h1>DONATION</h1>
+                <h4>IS THE BEST SOCIAL WORK</h4>
+                <p>Every day we bring hope to the people</p>
+                <p>who are losing it because of money</p>
+            </div>
+            <a herf="" routerLink="Donate">Donate Now &nbsp;<i class="bi bi-arrow-right"></i></a>
+        </div>
+    </div>
+</header>
+
+<section class="py-3">
+    <h5 class="fw-bolder" class="text-center">TOP NEEDED PEOPLE</h5>
+    <div class="container px-4 px-lg-5 mt-5">
+        <!-- <div class="row">
+            <div class="col-3 border border-dark-1 align-center text-center topneeded" *ngFor="let top of topNeeded">
+                <img class="my-2" src="/assets/Admin_campaign_Banner/{{top.bannerImage}}" height="100px" width="220px" alt="image"><br>
+                {{top.patient_name}}<br>
+                {{top.description}}
+                <button class="btn btn-primary text-center align-center my-2" (click)="onClick(top.campaignId)">Read
+                    More</button>
+</div> -->
+
+
+
+
+        <section>
+            <carousel [autoplay]="false" [autoplayInterval]="2000" [margin]="21" [cellWidth]="335" [height]="430">
+
+                <div class="carousel-cell" *ngFor="let top of topNeeded">
+                    <mat-card class="example-card">
+                        <img mat-card-image src="{{imageBaseUrl}}/assets/campagin_banner/{{top.bannerImage}}" alt="Photo of patient">
+
+                        <mat-card-header>
+                            <mat-card-title>{{top.patient_name}}</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p class="card-text" [ngClass]="{'limitTextHeight': true}" innerHTML="{{top.description}}">
+                            </p>
+                        </mat-card-content>
+                        <div class="mx-auto text-center">
+                            <button class="btn btn-primary  text-light col-md-11 my-1"
+                                routerLink="/campaginpage/{{top.campaignId}}"><b>Read More</b></button>
+                            <button class="btn btn-success col-md-11 my-1" (click)="donateNow()"><b>Donate
+                                    Now</b></button>
+                        </div>
+                    </mat-card>
+                </div>
+            </carousel>
+        </section>
+
+
+
+    </div>
+
+    <!-- <div class="row">
+        <div class="col-3 border border-dark-1 p-0" *ngFor="let top of topNeeded">
+            <img style="height: 250px; width: 100%;" src="assets/campagin_banner/{{top.bannerImage}}
+             " class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{top.patient_name}}</h5>
+                <p class="card-text" [ngClass]="{'limitTextHeight': true}" innerHTML="{{top.description}}"></p>
+            </div>
+            <div class="mx-auto text-center">
+                <button class="btn btn-primary  text-light col-md-11 my-1"
+                    routerLink="/campaginpage/{{top.campaignId}}"><b>Read More</b></button>
+                <button class="btn btn-success col-md-11 my-1" (click)="donateNow()"><b>Donate Now</b></button>
+            </div>
+        </div>
+    </div> -->
+
+</section>
+<!-- ____________________Section 2_______________________________________________________________________________________ -->
+
+<section class="py-3" id="ourpromises">
+    <h5 class="fw-bolder" class="text-center"><u>HOW CAN BE<i style="color:red">&nbsp;&nbsp;THE PART OF</i> K4H</u></h5>
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+            <div class="col mb-5">
+                <div class="card h-100" class="section2">
+
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <span id="iconSize"><i class='fas fa-hand-holding-heart'></i></span>
+                            <!-- <mat-icon>vpn_key</mat-icon> -->
+                            <h5 class="fw-bolder">DONATE NOW</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100" class="section2">
+                    <!-- Sale badge-->
+                    <!-- <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div> -->
+                    <!-- Product image-->
+
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <i class='far fa-handshake'></i>
+                            <h5 class="fw-bolder">BE A SOCIAL VOLUNTIER</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100" class="section2">
+                    <!-- Product image-->
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <i class='fas fa-hand-holding-usd'></i>
+                            <h5 class="fw-bolder">FUND RAISED TO THE HELP OTHER</h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100" class="section2">
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <i class='fas fa-users'></i>
+                            <h5 class="fw-bolder">CREATE CAMPAING</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ____________________________Section 3________________________________________________________________________________ -->
+<section class="py-5" class="donor">
+    <h5 class="fw-bolder" class="text-center mt-4"><u>OUR PROMISES<b>&nbsp;&nbsp;<i style="color:red">TO THE
+                    DONOR</i></b></u></h5>
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+            <div class="col mb-5">
+                <div class="card h-100" class="ourPromises">
+                    <!-- Product image-->
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <i class='far fa-handshake'></i>
+                            <h5 class="fw-bolder">RESPECT</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100" class="ourPromises">
+                    <!-- Sale badge-->
+                    <!-- <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div> -->
+                    <!-- Product image-->
+
+                    <!-- Product details-->
+                    <div class="card-body p-3">
+                        <div class="text-center">
+                            <i class='fas fa-address-book'></i>
+                            <h5 class="fw-bolder">KNOWLEDGE</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100" class="ourPromises">
+                    <!-- Product image-->
+                    <!-- Product details-->
+                    <div class="card-body p-3">
+                        <div class="text-center">
+                            <i class='fas fa-user-circle'></i>
+                            <h5 class="fw-bolder">CUSTOMER SERVICE</h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100" class="ourPromises">
+                    <!-- Product image-->
+                    <!-- Product details-->
+                    <div class="card-body p-3">
+                        <div class="text-center">
+                            <i class='fas fa-heart'></i>
+                            <h5 class="fw-bolder">HONESTY</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100" class="ourPromises">
+                    <!-- Product image-->
+                    <!-- Product details-->
+                    <div class="card-body p-3">
+                        <div class="text-center">
+                            <i class='fas fa-comment'></i>
+                            <h5 class="fw-bolder">RESPONSE</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100" class="ourPromises">
+                    <!-- Product image-->
+                    <!-- Product details-->
+                    <div class="card-body p-3">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">ABCD</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

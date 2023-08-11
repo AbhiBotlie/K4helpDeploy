@@ -1,0 +1,22 @@
+.heading{
+    margin-left: 35%;
+    font-weight: bold;
+}
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 5%;
+  }
+
+  .dialogButton{
+    position: relative;
+    left: 45%;
+  }
+
+  .calender{
+    position: absolute;
+    bottom: 1%;
+    left: 80%;
+  }

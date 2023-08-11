@@ -1,0 +1,271 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+.form {
+  height: 100%;
+  width: 100%;
+  background-color: yellow;
+  display: inline-flex;
+  margin: 0%;
+  padding: 0%;
+}
+
+.imageSection {
+  height: 100%;
+  width: 50%;
+  background-color: violet;
+  background-image: url(/assets/ppup\ image.jpg);
+  background-size: cover;
+  color: #fff;
+}
+
+.imageSection p {
+  position: relative;
+  display: inline-flex;
+  top: 55%;
+  font-size: 22px;
+}
+
+.campaignSection {
+  height: 100%;
+  width: 50%;
+  background-color: rgb(255, 249, 255);
+  /* border: 1px solid black; */
+}
+
+.campaignSection h3 {
+  text-align: center;
+  font-weight: 600;
+}
+
+button {
+  position: relative;
+  top: 0%;
+  left: 80%;
+}
+
+.next {
+  position: relative;
+  top: 75%;
+  left: 45%;
+  height: 7vh;
+  width: 20%;
+  border: 1px solid black;
+}
+
+.cross i {
+  position: relative;
+  height: 40px;
+  width: 40px;
+}
+
+.startCampaignForm {
+  /* background-color: yellowgreen; */
+  height: auto;
+  width: 37%;
+  position: absolute;
+}
+
+.example-full-width {
+  width: 80%;
+}
+
+#campaignerNumber {
+  width: 65%;
+}
+
+#sendOtp {
+  position: relative;
+  left: -5%;
+}
+
+.nextbtn {
+  position: relative;
+  left: 37%;
+}
+  
+  @media screen and (max-width:470px){
+    .imageStart {
+      height: 30vh;
+      width: 100%;
+      background-color: aquamarine;
+    }
+    
+    .imageStart img {
+      position: absolute;
+      height: 30vh;
+      width: 100%;
+    }
+    .container {
+      width: 83%;
+      height: auto;
+      position: relative;
+      background-color: white;
+      border: 1px solid rgb(82, 79, 79);
+      align-items: center;
+      text-align: center;
+      border-radius: 1.25rem;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding: 2%;
+  }
+  .imageOntext h1 {
+    font-size: 40px;
+    font-weight: 600;
+    color:rgb(6, 6, 19);
+  
+  }
+  }
+  @media screen and (max-width:767px){
+    .imageStart {
+      height: 30vh;
+      width: 100%;
+      background-color: aquamarine;
+    }
+    
+    .imageStart img {
+      position: absolute;
+      height: 30vh;
+      width: 100%;
+    }
+    .container {
+      width: 83%;
+      height: auto;
+      position: relative;
+      background-color: white;
+      border: 1px solid rgb(82, 79, 79);
+      align-items: center;
+      text-align: center;
+      border-radius: 1.25rem;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding: 2%;
+  }
+  .imageOntext h1 {
+    font-size: 40px;
+    font-weight: 600;
+    color:rgb(6, 6, 19);
+  
+  }
+  }
+  @media screen and (max-width:910px){
+    .imageStart {
+      height: 30vh;
+      width: 100%;
+      background-color: aquamarine;
+    }
+    
+    .imageStart img {
+      position: absolute;
+      height: 30vh;
+      width: 100%;
+    }
+    .container {
+      width: 83%;
+      height: auto;
+      position: relative;
+      background-color: white;
+      border: 1px solid rgb(82, 79, 79);
+      align-items: center;
+      text-align: center;
+      border-radius: 1.25rem;
+      margin-top: 10%;
+      margin-bottom: 10px;
+      padding: 2%;
+  }
+  .imageOntext h1 {
+    font-size: 40px;
+    font-weight: 600;
+    color:rgb(6, 6, 19);
+  
+  }
+  }
+  @media screen and (max-width:1200px){
+    .imageStart {
+      height: 30vh;
+      width: 100%;
+      background-color: aquamarine;
+    }
+    
+    .imageStart img {
+      position: absolute;
+      height: 30vh;
+      width: 100%;
+    }
+    .container {
+      width: 70%;
+      height: auto;
+      position: relative;
+      background-color: white;
+      border: 1px solid rgb(82, 79, 79);
+      align-items: center;
+      text-align: center;
+      border-radius: 1.25rem;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      padding: 2%;
+  }
+  .imageOntext h1 {
+    font-size: 40px;
+    font-weight: 600;
+    color:rgb(6, 6, 19);
+  
+  }
+  }
+
+@media screen and (max-width:470px){
+
+    .container{
+        background: url('/assets/ppup\ image.jpg');
+        background-size: 100% 50%;
+        background-repeat: no-repeat;
+    }
+    .imageSection {
+        height: 31vh;
+        width: 85%;
+        background-color: antiquewhite;
+        margin: 20px;
+        display: none;
+    }
+    .imageSection p{
+        display: none;
+    }
+    .formSection{
+        height: 65vh;
+        width: 85%;
+        display: none;
+    }
+    button{
+        background-color: #000000;
+       
+    }
+    .cross{
+        left:70%;
+        top:15%;
+        color: #fff;
+        
+    }
+    .imageSection{
+        background-size: 100% 100%;
+    
+    }
+     p{
+       position: relative;
+       top:50%;
+    }
+    .popupform{
+        height:60vh;
+        width:85%;
+        /* background-color: rgb(171, 59, 222); */
+        border: 1px solid black;
+        position: absolute;
+        display: block;
+        left:8%;
+        top:35%;
+        border-radius: 10%;
+        overflow-y: scroll;
+    }
+}

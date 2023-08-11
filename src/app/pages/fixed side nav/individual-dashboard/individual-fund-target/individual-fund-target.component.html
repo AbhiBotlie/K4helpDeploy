@@ -1,0 +1,46 @@
+<section class="contact__area grey-bg-2 pt-20 pb-10 mb-30 p-relative fix ">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-4 col-xl-4  col-lg-4  col-md-4  box">
+                <h3 class="mt-2 mb-2 ">Fund Target
+
+                </h3>
+            </div>
+            <div class="col-xxl-2 col-xl-2  col-lg-2  col-md-2 offset-md-5 box">
+                <button class="campaignButton btn btn-secondary mt-2 mb-2 " (click)="onClicked()">Start a new
+                    Campaign</button>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<div class="container col-md-12 ">
+    <mat-card>
+        <br>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Sr.no</th>
+                        <th scope="col">Campaign Id</th>
+                        <th scope="col">Cause Category</th>
+                        <th scope="col">Collected Amount</th>
+                        <th scope="col">Required Amount</th>
+                        <th scope="col">Last Date</th>
+                        <th scope="col">Plan</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let element of dataSource; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{element.campaignId}}</td>
+                    <td>{{element.amount}}</td>
+                    <td>{{element.campaignId}}</td>
+                    <td>{{element.amount}}</td>
+                    <td>{{element.campaignId}}</td>
+                    <td>{{element.amount}}</td>
+                </tr>
+            </table>
+        </div>
+    </mat-card>
+
+</div>

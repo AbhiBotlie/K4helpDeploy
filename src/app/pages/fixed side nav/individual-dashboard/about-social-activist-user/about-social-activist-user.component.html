@@ -1,0 +1,40 @@
+<section class="contact__area grey-bg-2 pt-20 pb-10 mb-30 p-relative fix ">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-4 col-xl-4  col-lg-4  col-md-4  box">
+                <h3 class="mt-2 mb-2 ">About You</h3>
+            </div>
+            <div class="col-xxl-2 col-xl-2  col-lg-2  col-md-2 offset-md-5 box">
+                <button class="campaignButton btn btn-secondary mt-2 mb-2 " (click)="onClicked()">Start a new
+                    Campaign</button>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<div class="card shadow-lg col-md-10 offset-md-1">
+    <form  [formGroup]="aboutSocialist">
+        <div class="row">
+            <div class="col-md-6 offset-md-1 mt-5">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Add your working area</mat-label>
+                    <input matInput type="text" formControlName="areaOfWorking">
+                </mat-form-field>
+            </div>        
+        </div>
+        <div class="row">
+            <div class="col-md-10 mb-4">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput type="text" formControlName="descreption" rows="14" cols="10" maxlength="4000"></textarea>
+                </mat-form-field>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col col-md-4 offset-md-4 ">
+                <button mat-raised-button color="accent" id="abcdef"  (click)="onSubmit()" >Submit</button>
+            </div>
+        </div>
+        <br>
+    </form>
+</div>

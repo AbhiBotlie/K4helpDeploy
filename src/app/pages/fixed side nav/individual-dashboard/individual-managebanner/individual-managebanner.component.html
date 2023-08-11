@@ -1,0 +1,73 @@
+<div class="heading">
+    <h1>Manage Banner</h1>
+</div>
+<div class="form">
+    <table mat-table #paginator [dataSource]="dataSource">
+
+
+        <ng-container matColumnDef="serialNo">
+            <th mat-header-cell *matHeaderCellDef>Sr.no </th>
+            <td mat-cell *matCellDef="let element1 ,let i = index;"> {{i+1}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="campaignerId">
+            <th mat-header-cell *matHeaderCellDef> C.id </th>
+            <td mat-cell *matCellDef="let element1"> {{element1.campId}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="campaignerName">
+            <th mat-header-cell *matHeaderCellDef> Campaign Name </th>
+            <td mat-cell *matCellDef="let element1"> {{element1.cause_category}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Banner Image">
+            <th mat-header-cell *matHeaderCellDef> Banner Image </th>
+            <td mat-cell *matCellDef="let element1">
+                <button mat-icon-button color="warn">
+                <mat-icon>upload</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="text">
+            <th mat-header-cell *matHeaderCellDef> Text </th>
+            <td mat-cell *matCellDef="let element1">Heading </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> Edit</th>
+            <td mat-cell *matCellDef="let element1">
+                <button mat-icon-button color="primary">
+                    <mat-icon (click)="openDialogEditBanner()">edit</mat-icon>
+                    </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Delete</th>
+            <td mat-cell *matCellDef="let element1">
+                <button mat-icon-button color="warn" (click)="openDialog(element1.campId)">
+                    <mat-icon>delete</mat-icon>
+                    </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="final view">
+            <th mat-header-cell *matHeaderCellDef> Final View</th>
+            <td mat-cell *matCellDef="let element1">
+                <button mat-icon-button color="warn">
+                    <mat-icon>visibility</mat-icon>
+                    </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="managebanner" style="background-color: rgb(242, 242, 242);"></tr>
+        <tr mat-row *matRowDef="let row; columns: managebanner;"></tr>
+    </table>
+    
+</div>
+<div class="divider">
+    <mat-paginator style-paginator #paginator id="style-paginator" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="true" [length]="pageLength" [pageSize]="pageSize" [showTotalPages]="5" [pageIndex]="currentPage" (page)="handlePage($event)">
+    </mat-paginator>
+</div>

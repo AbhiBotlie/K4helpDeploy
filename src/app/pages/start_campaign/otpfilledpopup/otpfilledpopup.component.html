@@ -1,0 +1,14 @@
+<div class="container">
+    <mat-icon mat-dialog-close>highlight_off</mat-icon>
+    <form [formGroup]="otpForm">
+        <mat-form-field>
+            <input matInput formControlName="otp" minlength="4" maxlength="4" (keypress)="OnlyNumbersAllowed($event)"
+                placeholder="Enter OTP" id="myOtp" required>
+            <mat-error *ngIf="myError('otp', 'required')">OTP is required</mat-error>
+            <mat-error *ngIf="myError('otp', 'pattern')">Enter Valid OTP</mat-error>
+        </mat-form-field>
+        <br>
+
+        <button mat-raised-button color="primary"  (click)="verify($event, otpForm)" [disabled]="!otpForm.valid" [disabled]="!otpForm.valid"> Verify</button>
+    </form>
+</div>

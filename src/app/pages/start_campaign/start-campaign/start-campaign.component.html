@@ -1,0 +1,72 @@
+<div class="content">
+    <div class="imageStart">
+        <img src="assets/image/start.jpg" class="img-fluid" alt="image">
+        <div class="imageOntext">
+            <h1>Start Campaign</h1>
+        </div>
+    </div>
+    <div class="movingText">
+        <marquee><b>{{movingText}}</b></marquee>
+    </div>
+    <div class="container">
+        <form [formGroup]="userForm" class="example-form">
+            <div *ngIf="isStartCampaignDivVisisble">
+                <mat-form-field>
+                    <mat-select matInput formControlName="user_type" (selectionChange)="onChange($event)" placeholder="Select User Type" required>
+                        <mat-option *ngFor="let user of user_type" [value]="user.value">
+                            {{user.value}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="myError('user_type', 'required')">User Type is required</mat-error>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field>
+                    <input matInput type="text" minlength="3" (keypress)="letterOnly($event)" placeholder="Campaigner Name" formControlName="campaigner_name" id="myName" required>
+                    <mat-error *ngIf="userForm.controls['campaigner_name'].hasError('required')">
+                        Name is <strong>Required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userForm.controls['campaigner_name'].hasError('minlength')">
+                        Name must be atleast of <strong>3 characters</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userForm.controls['campaigner_name'].hasError('maxlength')">
+                        Name must be less than <strong>40 characters</strong>
+                    </mat-error>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field>
+                    <input matInput type="email" formControlName="campaignerEmail" placeholder="Campaigner Email" required>
+                    <mat-error *ngIf="userForm.controls['campaignerEmail'].hasError('required')">
+                        Email is <strong>Required !</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userForm.controls['campaignerEmail'].hasError('pattern')">
+                        Please enter a valid <strong>Email</strong> address
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field id="campaignerNumber">
+                    <input matInput type="tel" minlength="10" maxlength="10" (keypress)="OnlyNumbersAllowed($event)" placeholder="Campaigner Number" formControlName="campaignerNumber" id="myNumber" required>
+                    <mat-error *ngIf="userForm.controls['campaignerNumber'].hasError('required')">
+                        Number is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userForm.controls['campaignerNumber'].hasError('pattern')">
+                        Number should starts from <strong>6-9</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userForm.controls['campaignerNumber'].hasError('minlength')">
+                        Number should be of <strong>10 digits</strong>
+                    </mat-error>
+                </mat-form-field>
+                <button id="sendOtp" type="submit" (click)="sendOTP()" mat-raised-button color="accent" [disabled]="isSendOtpBtnDisabled"  clicked = true [disabled]="!userForm.valid">{{otpButtonText}}</button>
+                <br>
+                <section class="terms-section">
+                    <mat-checkbox matInput class="terms-margin" formControlName="term_conditions" autocomplete="off" [checked]="isTrue" (change)="isTrue=!isTrue"><a (click)="openTermAndCondition()">Terms & Conditions*</a></mat-checkbox>
+                    <mat-error *ngIf="myError('term_conditions', 'required')">Please mark the terms and condition</mat-error>
+                </section>
+                <br>
+                <button mat-raised-button color="primary" id="nextButton" (click)=" startNextClick($event, userForm) " [disabled]="!isTrue"> NEXT
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

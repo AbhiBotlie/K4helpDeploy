@@ -1,0 +1,719 @@
+<section class="contact__area grey-bg-2 pt-20 pb-10 mb-30 p-relative fix ">
+  <div class="container">
+    <div class="row">
+      <div class="col-xxl-4 col-xl-4  col-lg-4  col-md-4  box">
+        <h3 class="mt-2 mb-2 ">Edit Campagin</h3>
+      </div>
+      <div class="col-xxl-2 col-xl-2  col-lg-2  col-md-2 offset-md-5 box">
+        <button class="campaignButton btn btn-secondary mt-2 mb-2 " (click)="onClicked()">Start a new
+          Campaign</button>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="card shadow-lg"><br>
+     <div class="card shadow-lg col-md-10 offset-md-1">
+      <div class="row flex-column-reverse flex-md-row">
+        <div class="leftSection p-2 col-md-6">
+          <div class="fundTarget col-md-12" *ngIf="addCampaigntKyc">
+            <h3 >Patient KYC</h3>
+            <form [formGroup]="patientKyc">
+              <div class="row">
+                <div class="col col-md-5 box-1"> 
+                  <mat-form-field>
+                    <mat-label>Aadhar Number</mat-label>
+                    <input matInput type="tel" formControlName="aadhar_no" maxlength="12">
+                    <mat-error *ngIf="myError4('aadhar_no', 'required')">Aadhar number is required</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col col-md-5 box-1 offset-md-1">  
+                  <mat-form-field>
+                    <mat-label>Pan Number</mat-label>
+                    <input matInput type="text" formControlName="pan_no">
+                    <mat-error *ngIf="myError4('pan_no', 'required')">PAN number is required</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="text-center">
+                 <div class="kycImages d-flex">
+                  <div class="docImage mx-2 col-md-5">
+                    <h6>Adhar Image</h6>
+                    <img src="{{patientAdharImage}}" class="img-thumbnail" alt="..."
+                      style="height:200px; width:150px"><br>
+                    <button type="button" mat-raised-button (click)="fileInput.click()">Upload Aadhar</button>
+                    <input hidden type="file" (change)="onAdharSelected($event)" #fileInput id="adhar"><br><br>
+                  </div>
+                  <div class="docImage col-md-5">
+                    <h6>Pan Image</h6>
+                    <img src="{{patientPanImage}}" class="img-thumbnail" alt="..."
+                      style="height:200px; width:150px"><br>
+                    <button type="button" mat-raised-button (click)="filePan.click()">Upload Pan</button>
+                    <input hidden type="file" (change)="onPanSelected($event)" #filePan id="pan"><br><br>
+                  </div>
+                </div>
+                <button class="btn btn-danger m-3" type="submit" (click)="submitForPatientKyc()">Submit</button>
+              </div>
+            </form>
+          </div>
+
+
+              <div class="openAccountDetail" *ngIf="patientDetails">
+                <div class="row">
+                  <div class="col-md-6 mt-3">
+                    <h3 class="ml-3">Patient Details</h3>
+                  </div>
+                  <div class="col-md-6  mt-3">
+                    <button class="btn btn-secondary offset-md-10" (click)="editDetails()"><i
+                        class="bi bi-pencil-fill"></i></button>
+                  </div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-md-4 ml-5">Name :{{patientName}}</div>
+                  <div class="col-md-4 ml-5">Email :{{patientEmail}}</div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-md-4 ml-5">Phone Number :{{patientPhoneNumber}}</div>
+                  <div class="col-md-4 ml-5">Gender :{{gender}}</div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-md-4 ml-5">Age : {{patientAge}}</div>
+                  <div class="col-md-4 ml-5">City :{{city}}</div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-md-4 ml-5">Patient Condition :{{patientCondition}}</div>
+                  <div class="col-md-4 ml-5">Patient Relation :{{patientRelation}}</div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-md-4 ml-5">Purpose :{{campaignPurpose}}</div>
+                  <div class="col-md-4 ml-5">Deasese :{{causeCategory}}</div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-md-4 ml-5">Required Amount :{{requiredAmount}}</div>
+                  <div class="col-md-4 ml-5">Target Date :{{targetDate |date}}</div>
+                </div>
+              </div>
+
+
+              <div class="fundTarget" *ngIf="editPatientDetails">
+                <h3 class="mt-3 ml-3">Edit Patient Details</h3>
+                <form [formGroup]="userForm">
+                  <div class="row text-center ml-5 mt-5">
+                    <div class="col-md-4 ">
+                      <mat-form-field>
+                        <mat-label>Patient Name</mat-label>
+                        <input matInput formControlName="patient_name">
+                        <mat-error *ngIf="myError1('patient_name', 'required')">Patient Name is
+                          <strong>required</strong></mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field>
+                        <mat-label>Patient Number</mat-label>
+                        <input matInput formControlName="patient_number">
+                        <mat-error *ngIf="myError1('patient_number', 'required')">Patient Number is
+                          <strong>required</strong></mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row text-center ml-5">
+                    <div class="col-md-4 ">
+                      <mat-form-field>
+                        <mat-label>Patient Email</mat-label>
+                        <input matInput formControlName="patient_email">
+                        <mat-error *ngIf="myError1('patient_email', 'required')">Patient Email is
+                          <strong>required</strong></mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field>
+                        <mat-label>Patient age</mat-label>
+                        <input matInput formControlName="patient_age">
+                        <mat-error *ngIf="myError1('patient_age', 'required')">Please enter the age</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row text-center ml-5">
+                    <div class="col-md-4">
+                      <mat-form-field>
+                        <mat-select matInput formControlName="patient_condition"
+                          (selectionChange)="onSelectHospital($event)" placeholder="Select Patient Conditions" required>
+                          <mat-option *ngFor="let condition of conditions" [value]="condition.conditions">
+                            {{condition.conditions}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="myError1('patient_condition', 'required')">Please choose an option</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field>
+                        <mat-select formControlName="cause_category" placeholder="Select Disease" required>
+                          <mat-option disabled>Select Disease</mat-option>
+                          <mat-option *ngFor="let disease of deseases" [value]="disease.disease">
+                            {{disease.disease}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="myError1('cause_category', 'required')">Please choose an option</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row text-center ml-5">
+                    <div class="col-md-4">
+
+                      <mat-form-field>
+                        <mat-label>Required Amount</mat-label>
+                        <input matInput formControlName="required_amount" (keydown)="restrictZero($event)"
+                          (keypress)="OnlyNumbersAllowed($event)">
+                        <mat-error *ngIf="myError1('required_amount', 'required')">Please enter an amount</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field>
+                        <mat-select formControlName="gender" placeholder="Select gender" selected="gender" required>
+                          <mat-option disabled>select gender</mat-option>
+                          <mat-option value="Male">Male</mat-option>
+                          <mat-option value="Female">Female</mat-option>
+                          <mat-option value="Others">Others</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="myError1('gender', 'required')">Please choose an option</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row text-center ml-5">
+                    <div class="col-md-4 ">
+
+                      <mat-form-field>
+                        <input matInput aria-label="City" [matAutocomplete]="auto" formControlName="city"
+                          placeholder="City" required>
+                        <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let city of filteredCities | async" [value]="city.name">
+                            <span>{{city.name}}</span>
+                          </mat-option>
+                        </mat-autocomplete>
+                        <mat-error *ngIf="myError1('city', 'required')">Please enter a value</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4 ">
+                      <mat-form-field>
+                        <mat-select formControlName="patient_relation" placeholder="Select relation with patient"
+                          required>
+                          <mat-option disabled>select relation with patient</mat-option>
+                          <mat-option *ngFor="let relation of relations" [value]="relation.relation">
+                            {{relation.relation}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="myError1('patient_relation', 'required')">Please choose an option</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row text-center ml-5">
+                    <div class="col-md-4 ">
+                      <mat-form-field id="date">
+                        <mat-label>Target Date</mat-label>
+                        <input matInput [matDatepicker]="picker" [min]="minDate" formControlName="target_date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="myError1('target_date', 'startDate')">Please enter a valid date</mat-error>
+                        <mat-error *ngIf="myError1('target_date', 'required')">Date is required</mat-error>
+                      </mat-form-field><span id="none">||||</span>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field>
+                        <mat-label>Select purpose</mat-label>
+                        <mat-select formControlName="campaign_purpose" placeholder="">
+                          <mat-option *ngFor="let medical of medicals"
+                            value="{{medical.type}}">{{medical.type}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="myError1('campaign_purpose', 'required')">Please choose a purpose</mat-error>
+                      </mat-form-field><span id="none">||||</span>
+                      <br>
+                      <br>
+                      <button mat-raised-button color="primary" [disabled]="!userForm.valid"
+                        (click)="updatePatientDetails()">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div class="fundTarget" *ngIf="addCampaignBannerImage">
+                <h3 class="mt-3 ml-3">Add Banner Image & Heading</h3>
+                <form [formGroup]="addBanner">
+                  <div class="row mt-5">
+                    <div class="text-center">
+                      <mat-form-field>
+                        <mat-label>Heading</mat-label>
+                        <input matInput formControlName="heading">
+                        <mat-error *ngIf="addBanner.controls['heading'].hasError('required')">Patient Number is
+                          <strong>required</strong></mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="text-center">
+                      <button type="button" mat-raised-button (click)="fileBanner.click()">+ Add Image</button>
+                      <input hidden type="file" (change)="onBannerSelected($event)" #fileBanner id="banner">
+
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="text-center">
+                      <button mat-raised-button color="primary" type="submit"
+                        (click)="addBannerToCampaign()">Upload</button>
+                    </div>
+                  </div>
+                </form>
+                <div class="image text-center mt-3">
+                  <img src="{{image}}" alt="image" height="200px" width="300px">
+                </div>
+              </div>
+
+              <div class="fundTarget" *ngIf="addCampaignImage">
+                <h3 class="p-3">Manage Image</h3>
+                <form [formGroup]="uploadPatientImage">
+                  <div class="text-center my-3">
+                    <input type="hidden" formControlName="campaignId">
+                    <button type="button" mat-raised-button (click)="filePatientImage.click()">+ Add Image</button>
+                    <input hidden type="file" (change)="onPatientImagesSelected($event)" #filePatientImage
+                      id="patientImage">
+
+                    <button mat-raised-button class="mx-3" type="button" color="accent"
+                      (click)="uploadPatientImageMethod()">Upload</button>
+                  </div>
+                </form>
+                <div class="row">
+                  <div class="col-md-12 ml-3">
+                    <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8 shadow-none">
+                      <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef > S.No </th>
+                        <td mat-cell *matCellDef="let element , let i=index"> {{i+1}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="campId">
+                        <th mat-header-cell *matHeaderCellDef>Campaign Id </th>
+                        <td mat-cell *matCellDef="let element"> {{element.campaignId}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Image </th>
+                        <td mat-cell *matCellDef="let element">
+                          <img src="assets/images_of_campagin/{{element.image}}" alt="image" id="tableImage"
+                            height="70px" width="70px">
+                        </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="weight">
+                        <th mat-header-cell *matHeaderCellDef> Delete </th>
+                        <td mat-cell *matCellDef="let element">
+                          <button style="background: none; border: none;" (click)="deletePatientImage(element.id)">
+                            <mat-icon style="background: none; color: red;">delete</mat-icon>
+                          </button>
+                        </td>
+                      </ng-container>
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="openAccountDetail" *ngIf="openAccountDetails">
+                <h3 class="mt-3 ml-3">Account Details</h3>
+                <form [formGroup]="accountDetails">
+                  <div class="row text-center ml-5 mt-3">
+                    <div class="col-md-4 ">
+                      <mat-form-field>
+                        <mat-label>Benificiary Name</mat-label>
+                        <input matInput type="text" formControlName="beneficiary_name" (keypress)="letterOnly($event)">
+                        <mat-error *ngIf="myError5('beneficiary_name', 'required')">Beneficiary name is
+                          required</mat-error>
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-md-4">
+                      <mat-form-field>
+                        <mat-label>Bank Name</mat-label>
+                        <input matInput type="text" formControlName="bank_name" (keypress)="letterOnly($event)">
+                        <mat-error *ngIf="myError5('bank_name', 'required')">Bank name is required</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row text-center ml-5">
+                    <div class="col-md-4  ">
+                      <mat-form-field>
+                        <mat-label>Branch Name</mat-label>
+                        <input matInput type="text" formControlName="branchName" (keypress)="letterOnly($event)">
+                        <mat-error *ngIf="myError5('branchName', 'required')">Branch name is required</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field>
+                        <mat-label>IFSC Code</mat-label>
+                        <input matInput type="text" formControlName="ifsc_code">
+                        <mat-error *ngIf="myError5('ifsc_code', 'required')">IFSC Code is required</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row text-center ml-5">
+                    <div class="col-md-4  ">
+                      <mat-form-field>
+                        <mat-label>Account No.</mat-label>
+                        <input matInput type="text" formControlName="account_no"
+                          (keypress)="OnlyNumbersAllowed($event)">
+                        <mat-error *ngIf="myError5('account_no', 'required')">Account number is required</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                  </div>
+                  <div class="row text-center ml-5">
+                    <div class="col-md-4 offset-md-2 ">
+                      <button mat-raised-button color="primary" [disabled]="!accountDetails.valid" type="button"
+                        (click)="updateAccountDetails()">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div class="fundTarget" *ngIf="addCampaignPlan">
+                <div class="text-center mt-3 mb-3">
+                  <h4>Change Plan</h4>
+                  <button class="btn btn-primary " (click)="planSubmit()">Change My Plan</button>
+                </div>
+                <div class="row my-2">
+                  <div class="row" *ngFor="let plan of plans">
+                    <div class="border rounded-3 p-3 col-md-6 offset-md-3 " *ngIf="plan.id==MAIN_ID">
+                      <div class="text-center mb-3">
+                        <h5 class="text-danger">Current Plan </h5>
+                        <h3 class="">{{plan.planName | titlecase}} </h3>
+                      </div>
+                      <div *ngFor="let i of plan.arryOfSelectedCheckbox.split(',')">
+                        <div *ngFor="let plan of mynewArray">
+                          <p class="" *ngIf="plan.id==i"><i class="fa fa-check"></i> {{plan.value}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="fundTarget" *ngIf="addCampaignUpdate">
+                <h3 class="mt-3 ml-3">Add Update</h3>
+                <form [formGroup]="patientConditionUpdate">
+                  <div class="row">
+                    <div class="ml-4">
+                      <mat-form-field appearance="outline" id="southEX">
+                        <mat-label>Add your update here...</mat-label>
+                        <textarea matInput type="text" rows="7" cols="30" formControlName="conditionUpdate"
+                          maxlength="1800"></textarea>
+                        <mat-error *ngIf="myError3('conditionUpdate', 'required')">Update is required</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <input hidden type="file" (change)="onUpdatedPatientImageSelected($event)" #fileUpdatedPatientImage
+                      id="patientImage">
+                    <button mat-raised-button type="button" color="accent"
+                      (click)="fileUpdatedPatientImage.click()">Upload
+                      Updated
+                      Pateint Image</button>
+                    <div class="row mt-3">
+                      <div class="col-md-4 offset-md-4">
+                        <button mat-raised-button color="primary" type="submit"
+                          [disabled]="!patientConditionUpdate.valid" (click)="conditionUpdate()">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="row mt-3">
+                  <div class="col-md-4 offset-md-4">
+                    <img src="assets/images_of_campagin/{{patientUpdatedImage}}" alt="image" height="200px"
+                      width="300px">
+                  </div>
+                </div>
+              </div>
+
+              <div class="updatedImage ">
+                <div class="fundTarget" *ngIf="uploadMedicalDocuments">
+                  <h3 class="mt-3 ml-3">Upload Medical Document</h3>
+                  <form [formGroup]="uploadMedicalDocumentsOfCampaign">
+                    <div class="text-center">
+                      <button type="button" mat-raised-button (click)="filemedical.click()">+ Add Image</button>
+                      <input hidden type="file" (change)="onMedicalImageSelected($event)" #filemedical id="medical">
+                      <br><br>
+                      <button mat-raised-button color="primary" type="submit" class="my-2"
+                        (click)="uploadMedicalDocument()">Upload</button>
+                    </div>
+                  </form>
+                  <div class="col-md-12 ml-3">
+                    <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8 shadow-none ">
+                      <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> S.No </th>
+                        <td mat-cell *matCellDef="let element , let i=index"> {{i+1}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="campId">
+                        <th mat-header-cell *matHeaderCellDef>Campaign Id </th>
+                        <td mat-cell *matCellDef="let element"> {{element.campaignId}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Image </th>
+                        <td mat-cell *matCellDef="let element">
+                          <img src="assets/medical_docs/{{element.medicalImage}}" alt="image" id="tableImage">
+                        </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="weight">
+                        <th mat-header-cell *matHeaderCellDef> Delete </th>
+                        <td mat-cell *matCellDef="let element">
+                          <button style="background: none; border: none;" (click)="deleteMedicalImage(element.id)">
+                            <mat-icon style="background: none; color: red;">delete</mat-icon>
+                          </button>
+                        </td>
+                      </ng-container>
+
+                      <tr mat-header-row *matHeaderRowDef="madicalTable"></tr>
+                      <tr mat-row *matRowDef="let row; columns: madicalTable;"></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="fundTarget" *ngIf="addHospitalDetailsToCampaign">
+                <h3 class="mt-3 ml-3">Add Hospital Details</h3>
+                <form [formGroup]="addHospitalDetailsToCampaignFormGroup">
+                  <div class="text-center mt-5">
+                    <mat-form-field>
+                      <mat-label>Enter Hospital Name</mat-label>
+                      <input matInput type="text" formControlName="hospitalName" (keypress)="letterOnly($event)">
+                      <mat-error *ngIf="myError6('hospitalName', 'required')">Please enter a plan</mat-error>
+                    </mat-form-field><br><br>
+                    <mat-form-field>
+                      <mat-label>Enter City</mat-label>
+                      <input matInput type="text" formControlName="hospitalCity" (keypress)="letterOnly($event)">
+                      <mat-error *ngIf="myError6('hospitalCity', 'required')">Please enter a plan</mat-error>
+                    </mat-form-field><br><br>
+                    <mat-form-field>
+                      <mat-label>Enter Pincode</mat-label>
+                      <input matInput type="text" formControlName="hospitalPincode"
+                        (keypress)="OnlyNumbersAllowed($event)">
+                      <mat-error *ngIf="myError6('hospitalPincode', 'required')">Please enter a plan</mat-error>
+                    </mat-form-field><br><br>
+                    <button mat-raised-button color="primary" [disabled]="!addHospitalDetailsToCampaignFormGroup.valid"
+                      (click)="submitHospitalDetailsOfCampaign()">Submit</button>
+                  </div>
+                </form>
+              </div>
+
+              <div  *ngIf="addStoryToCampaign">
+                <h3 class="mt-3 ml-3">Add Story of Campaign</h3>
+                <form [formGroup]="addStoryToCampaignFormGroup">
+                  <div class="mt-3">
+                    <mat-form-field  appearance="outline" id="southEX">
+                      <mat-label>Story</mat-label>
+                      <textarea matInput type="text" formControlName="description"  rows="8" cols="10" ></textarea>
+                      <mat-error *ngIf="myError7('description', 'required')">story is required !</mat-error>
+                    </mat-form-field><br><br>
+                    <button mat-raised-button color="primary" style="position: relative; left: 48%;" [disabled]="!addStoryToCampaignFormGroup.valid"
+                      (click)="submitStoryOfCampaign()">Submit</button>
+                  </div>
+
+                </form>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="col-md-4 d-none d-lg-block d-xl-block">
+            <div class="border-left p-3">
+              <h4>Your Campaign Status</h4>
+              <div class="progress">
+                <div class="progress-value"></div>
+
+              </div>
+              <button class="btn btn-light btn-block border border-2 buttons" (click)="addPatientKyc()">Patient
+                KYC</button>
+              <button class="btn btn-light btn-block border border-2 buttons" (click)="addPatientDetails()">Patient
+                Detail</button>
+              <button class="btn btn-light btn-block border border-2 buttons" (click)="addBannerImage()">Banner
+                and
+                Heading</button>
+              <button class="btn btn-light btn-block border border-2 buttons" (click)="addImage()">Manage
+                Image</button>
+              <button class="btn btn-light btn-block border border-2 buttons"
+                (click)="onClickOpenAccountDetail()">Account Detail</button>
+              <button class="btn btn-light btn-block border border-2 buttons" (click)="addPlan()">Plans</button>
+              <button class="btn btn-light btn-block border border-2 buttons" (click)="addUpdate()">Add
+                Updates</button>
+              <button class="btn btn-light btn-block border border-2 buttons" (click)="uploadMedicalImages()">Upload
+                Medical Images</button>
+              <button class="btn btn-light btn-block border border-2 buttons" (click)="uploadHospitalDetaails()">Add
+                hospital Details</button>
+              <button class="btn btn-light btn-block border border-2 buttons" (click)="uploadStoryOfPatient()">Add
+                story
+                to campaign</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="container">
+  <div class="card shadow-lg"><br>
+        <d
+
+
+          
+
+          
+
+          <div class="fundTarget" *ngIf="uploadMedicalDocuments">
+            <h3 class="text-center">Upload Medical Document</h3>
+            <form [formGroup]="uploadMedicalDocumentsOfCampaign">
+              <div class="text-center">
+                <button type="button" mat-raised-button (click)="filemedical.click()">+ Add Image</button>
+                <input hidden type="file" (change)="onMedicalImageSelected($event)" #filemedical id="medical">
+
+                <br>
+                <br>
+                <button mat-raised-button color="primary" type="submit" class="my-2"
+                  (click)="uploadMedicalDocument()">Upload</button>
+              </div>
+            </form>
+            <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> S.No </th>
+                <td mat-cell *matCellDef="let element , let i=index"> {{i+1}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="campId">
+                <th mat-header-cell *matHeaderCellDef>Campaign Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.campaignId}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Image </th>
+                <td mat-cell *matCellDef="let element">
+                  <img src="assets/medical_docs/{{element.medicalImage}}" alt="image" id="tableImage" height="70px"
+                    width="70px">
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef> Delete </th>
+                <td mat-cell *matCellDef="let element">
+                  <button style="background: none; border: none;" (click)="deleteMedicalImage(element.id)">
+                    <mat-icon style="background: none; color: red;">delete</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="madicalTable"></tr>
+              <tr mat-row *matRowDef="let row; columns: madicalTable;"></tr>
+            </table>
+          </div>
+
+          
+
+          <div class="fundTarget" *ngIf="addCampaignPlan">
+            <h3 class="text-center my-2">Change Plan</h3>
+            <button class="btn btn-primary mx-5" (click)="planSubmit()">Change My Plan</button>
+            <div class="row my-2">
+              <h5 class="text-center">{{plan.planName}}</h5>
+              <div class="row" *ngFor="let plan of plans">
+                <div class="border rounded-5 mx-3" *ngIf="plan.id==MAIN_ID">
+                  <div *ngFor="let i of plan.arryOfSelectedCheckbox.split(',')">
+                    <div *ngFor="let plan of mynewArray">
+                      <p class="text-center" *ngIf="plan.id==i"><b>{{plan.value}}</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+
+          <div class="fundTarget" *ngIf="addHospitalDetailsToCampaign">
+            <h3 class="text-center">Add Hospital Details</h3>
+            <form [formGroup]="addHospitalDetailsToCampaignFormGroup">
+              <div class="text-center">
+                <mat-form-field>
+                  <mat-label>Enter Hospital Name</mat-label>
+                  <input matInput type="text" formControlName="hospitalName" (keypress)="letterOnly($event)">
+                  <mat-error *ngIf="myError6('hospitalName', 'required')">Please enter a plan</mat-error>
+                </mat-form-field><br><br>
+                <mat-form-field>
+                  <mat-label>Enter City</mat-label>
+                  <input matInput type="text" formControlName="hospitalCity" (keypress)="letterOnly($event)">
+                  <mat-error *ngIf="myError6('hospitalCity', 'required')">Please enter a plan</mat-error>
+                </mat-form-field><br><br>
+                <mat-form-field>
+                  <mat-label>Enter Pincode</mat-label>
+                  <input matInput type="text" formControlName="hospitalPincode" (keypress)="OnlyNumbersAllowed($event)">
+                  <mat-error *ngIf="myError6('hospitalPincode', 'required')">Please enter a plan</mat-error>
+                </mat-form-field><br><br>
+
+                <button mat-raised-button color="primary" [disabled]="!addHospitalDetailsToCampaignFormGroup.valid"
+                  (click)="submitHospitalDetailsOfCampaign()">Submit</button>
+              </div>
+            </form>
+          </div>
+
+
+
+          <div class="fundTarget" *ngIf="addStoryToCampaign">
+            <h3 class="text-center">Add Story of Campaign</h3>
+            <form [formGroup]="addStoryToCampaignFormGroup">
+              <div class="text-center">
+                <mat-form-field id="textarea" appearance="outline">
+                  <mat-label>Story</mat-label>
+                  <textarea matInput type="text" formControlName="description" maxlength="3999" cols="10"
+                    rows="5"></textarea>
+                  <mat-error *ngIf="myError7('description', 'required')">story is required !</mat-error>
+                </mat-form-field><br><br>
+                <button mat-raised-button color="primary" [disabled]="!addStoryToCampaignFormGroup.valid"
+                  (click)="submitStoryOfCampaign()">Submit</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+        <div class="rightSection p-2 col-md-5">
+          <h4>Your Campaign Status</h4>
+          <div class="progressbar">
+            <div class="progress">
+              <div class="progress-value"></div>
+            </div>
+          </div>
+          <button class="btn btn-light btn-block border border-2 buttons" (click)="addPatientKyc()">Patient
+            KYC</button>
+          <button class="btn btn-light btn-block border border-2 buttons" (click)="addPatientDetails()">Patient
+            Detail</button>
+          <button class="btn btn-light btn-block border border-2 buttons" (click)="addBannerImage()">Banner and
+            Heading</button>
+          <button class="btn btn-light btn-block border border-2 buttons" (click)="addImage()">Manage
+            Image</button>
+          <button class="btn btn-light btn-block border border-2 buttons"
+            (click)="onClickOpenAccountDetail()">Account Detail</button>
+          <button class="btn btn-light btn-block border border-2 buttons" (click)="addPlan()">Plans</button>
+          <button class="btn btn-light btn-block border border-2 buttons" (click)="addUpdate()">Add
+            Updates</button>
+          <button class="btn btn-light btn-block border border-2 buttons" (click)="uploadMedicalImages()">Upload
+            Medical Images</button>
+          <button class="btn btn-light btn-block border border-2 buttons" (click)="uploadHospitalDetaails()">Add
+            hospital Details</button>
+          <button class="btn btn-light btn-block border border-2 buttons" (click)="uploadStoryOfPatient()">Add
+            story
+            to campaign</button>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div> -->

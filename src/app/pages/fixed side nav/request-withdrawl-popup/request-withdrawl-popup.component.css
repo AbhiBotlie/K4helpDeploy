@@ -1,0 +1,53 @@
+.icon{
+    background: none;
+    border: none;
+    position: relative;
+    float: right;
+}
+
+.container{
+    height: 550px;
+    width: 500px;
+}
+.hospital{
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%; 
+}
+
+.inputAmount{
+    margin-top: 68px;
+}
+.submitButton{
+    margin-top: 50px;
+    left: -10%;
+}
+
+.image{
+    height: 100px;
+    width: 100px;
+}
+
+.medical img{
+    height: 100px;
+    width: 100px;
+    border: none;
+    margin-top: 50px;
+}
+
+.left{
+    float:left;
+    width: 50%;
+    margin-top: 50px;
+}
+
+.right{
+    float: left;
+    width: 50%;
+}

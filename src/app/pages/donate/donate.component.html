@@ -1,0 +1,101 @@
+<div class="banner">
+    <div class="dynamicImage">
+
+        <img src="assets/image/donate.jpg" class="img-fluid" alt="image">
+        <div class="container">
+            Donate
+        </div>
+    </div>
+    <div class="moving-text">
+        <marquee behavior="" direction="">{{movingText}}</marquee>
+    </div>
+    <div class="form">
+        <form [formGroup]="donate">
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input type="text" minlength="3" matInput formControlName="donorName" required
+                    (keypress)="letterOnly($event)">
+                <mat-error *ngIf="donate.controls['donorName'].hasError('required')">
+                    Name is <strong>Required</strong>
+                </mat-error>
+                <mat-error *ngIf="donate.controls['donorName'].hasError('minlength')">
+                    Name must be atleast of <strong>3 characters</strong>
+                </mat-error>
+                <mat-error *ngIf="donate.controls['donorName'].hasError('maxlength')">
+                    Name must be less than <strong>40 characters</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Enter your Phone Number</mat-label>
+                <input type="text" matInput formControlName="donorPhoneNumber" (keypress)="OnlyNumbersAllowed($event)"
+                    maxlength="10" minlength="10" required>
+                <mat-error *ngIf="donate.controls['donorPhoneNumber'].hasError('required')">
+                    Number is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="donate.controls['donorPhoneNumber'].hasError('pattern')">
+                    Number should starts from <strong>6-9</strong>
+                </mat-error>
+                <mat-error *ngIf="donate.controls['donorPhoneNumber'].hasError('minlength')">
+                    Number should be of <strong>10 digits</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Enter your email</mat-label>
+                <input type="email" matInput formControlName="donorEmail" required>
+                <mat-error *ngIf="myError('donorEmail', 'email') && !myError('donorEmail','required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="myError('donorEmail', 'required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Amount</mat-label>
+                <input matInput type="tel" class="example-right-align" formControlName="amount" required
+                    (keypress)="OnlyNumbersAllowed($event)" (keydown)="restrictZero($event)">
+                <mat-error *ngIf="donate.controls['amount'].hasError('minlength')">
+                    Amount should be atleast of <strong>4 digits</strong>
+                </mat-error>
+                <mat-error *ngIf="myError('amount', 'required')">
+                    Amount is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-select formControlName="frequency" placeholder="Frequency" required>
+                    <mat-option disabled>select frequency</mat-option>
+                    <mat-option *ngFor="let frequency of frequencies" [value]="frequency.options">
+                        {{frequency.options}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="myError('frequency','required')">Please choose a purpose</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field>
+                <mat-select formControlName="selectpurpose" placeholder="Purpose" required>
+                    <mat-option disabled>select purpose</mat-option>
+                    <mat-option *ngFor="let purpose of purposes" [value]="purpose.value">
+                        {{purpose.value}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="myError('selectpurpose', 'required')">Please choose a purpose</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Country</mat-label>
+                <input matInput aria-label="Country" [matAutocomplete]="auto" formControlName="country" required>
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let country of filteredCountries | async" [value]="country.name">
+                        <img alt="" class="example-option-img" height="25">
+                        <span>{{country.name}}</span>
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-error *ngIf="myError('country', 'required')">Please choose a purpose</mat-error>
+            </mat-form-field><br>
+
+            <button mat-raised-button color="accent" type="submit" [disabled]="!donate.valid" (click)="onClick()">Donate</button>
+        </form>
+    </div>
+</div>

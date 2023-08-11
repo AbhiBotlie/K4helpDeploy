@@ -1,0 +1,327 @@
+.content {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  align-items: center;
+}
+
+.container {
+  width: 40%;
+  height: auto;
+  position: relative;
+  background-color: white;
+  border: 1px solid rgb(82, 79, 79);
+  align-items: center;
+  text-align: center;
+  border-radius: 1.25rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 2%;
+}
+
+.calender{
+  position: absolute;
+  bottom: 1%;
+  left: 88%;
+}
+
+.imageStart {
+  height: 50vh;
+  position: relative;
+}
+
+
+.imageStart img {
+  height: 50vh;
+  width: 100%;
+}
+
+.gender{
+  height: auto;
+  width: 100%;
+  position: relative;
+  left: 1%;
+}
+
+.gender label h5{
+  position: relative;
+  /* left: 25%; */
+  right: -25%;
+}
+
+.gender .mat-radio-button{
+  padding: 15px;
+}
+
+.datePicker{
+  position: relative;
+}
+
+.imageOntext {
+  height: 15vh;
+  padding-top: 35px;
+  padding-left:5px;
+  width: 50%;
+  z-index: 2;
+  position: absolute;
+  top: 0%;
+  /* background-color: aqua; */
+}
+
+.imageOntext h1 {
+  font-size: 60px;
+  font-weight: 600;
+  position: relative;
+}
+
+.movingText {
+  height: 4%;
+  width: 100%;
+  background-color: rgb(162, 195, 214);
+}
+
+
+
+.mat-checkbox {
+  cursor: inherit;
+  align-items: baseline;
+  vertical-align: middle;
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.othersButton {
+  width: 20%;
+  height: 6vh;
+  position: absolute;
+  margin-left: 30%;
+  border-radius: 2rem;
+  margin-top: -8%;
+  background-color: rgb(88, 88, 199);
+}
+
+.hidepage {
+  width: 100%;
+  height: 26%;
+  position: absolute;
+  top: 27%;
+  background-color: rgb(137, 156, 156);
+}
+
+#hospitalCity {
+  width: 42%;
+}
+
+.persional_Details .mat-radio-button {
+  margin: 1% 12px;
+}
+
+.mat-radio-group {
+  position: relative;
+  box-sizing: border-box;
+  height: 20px;
+  left: 5%;
+  top: 1%;
+  width: 80%;
+}
+
+mat-datepicker-toggle {
+  float: right;
+}
+
+.leftdays{
+  position:absolute;
+  top: 51%;
+  right: 18%;
+  font-size: 2.2rem;
+}
+
+.span{
+  position: absolute;
+  right: 18%;
+  bottom: 35%;
+  font-size: 0.8rem;
+}
+
+#date {
+  width: 60%;
+  float: left;
+  left: 2%;
+}
+
+.mat-raised-button.mat-primary {
+  background-color: rgb(153, 194, 232);
+  width: 25%;
+}
+
+.mat-icon-button {
+  position: absolute;
+  margin-top: -25%;
+  margin-left: 90%;
+
+}
+
+.terms-section {
+  left: 20%;
+}
+
+.col-md-3 {
+  width: 80%;
+  height: 5%;
+}
+
+.col-md-3 select {
+  width: 400%;
+  border-bottom: 2px solid black;
+  outline: none;
+  margin-top: -2%;
+}
+
+/*--- third form */
+
+.hospital_Details {
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  position: absolute;
+  padding-top: 0%;
+  border-radius: 1.5rem;
+  margin-left: -2%;
+  margin-top: -2%;
+  background-color: white;
+}
+
+.hospitalForm_Details {
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  position: absolute;
+  padding-top: 0%;
+  border-radius: 1.5rem;
+  margin-left: -2%;
+  margin-top: -2%;
+  background-color: white;
+
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container>* {
+  width: 100%;
+
+}
+
+.uploadDocument {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: inline;
+  top: 20px;
+  bottom: 20px;
+  position: relative;
+  left: -1%;
+}
+
+.mat-input-field {
+  font: message-box;
+  color: balck;
+  border: none;
+  outline: none;
+  padding: 2% 2%;
+  width: 80%;
+  /* max-width: 80%; */
+  vertical-align: bottom;
+  text-align: center;
+  box-sizing: content-box;
+
+}
+
+.example-form {
+  width: 95%;
+}
+
+.example-form #matSelect {
+  width: 80%;
+}
+
+mat-form-field {
+  margin-left: 5%;
+  width: 90%;
+}
+
+.totalDays {
+  width: 90%;
+  text-align: left;
+  height: 10vh;
+  border-bottom: 1px solid;
+  display: flex;
+  left: 7%;
+  position: relative;
+}
+
+.targetdate {
+  display: inline;
+
+}
+
+.showLoader {
+  width: 88%;
+  height: 30%;
+  background-color: green;
+  border: none;
+  margin: 2%;
+  font-size: 1.2pc;
+  box-sizing: border-box;
+  outline: none;
+}
+
+textarea {
+  border-radius: 0.5rem;
+  border: 1px solid rgb(82, 79, 79);
+  top: 20px;
+}
+
+#uploadButton {
+  left: 0%;
+  position: relative;
+  text-align: left;
+}
+
+#description{
+border-bottom: none;
+border: none;
+}
+
+@media screen and (max-width:767px){
+.container {
+  width: 75%;
+}
+}
+
+@media screen and (max-width:460px){
+  .container {
+    width: 80%;
+  }
+  .gender label h5{
+    position: relative;
+    /* left: 25%; */
+    right: 0%;
+  }
+  .gender .mat-radio-button {
+    padding: 5px;
+    
+}
+.gender label h5 {
+  position: relative;
+  right: 6%;
+  font-size: 18px;
+}
+  }
+  @media screen and (max-width:1200px){
+    .container {
+      width: 60%;
+    }
+    }

@@ -1,0 +1,20 @@
+.heading h1{
+  font-size:25px;
+}
+::-webkit-scrollbar{
+  width:0rem;
+  height:0rem;
+}
+
+.form{
+  overflow-x: scroll;
+}
+
+th{
+  background-color: black;
+  color: rgb(247, 247, 247);
+ }
+
+td{
+  background-color: rgb(244, 242, 242);
+}
